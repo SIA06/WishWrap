@@ -31,9 +31,9 @@ public class FeedbackEntity {
         
     Integer feedback_id;
 
-   // @ManyToOne
-    //@JoinColumn(name = "user_id",referencedColumnName = "user_id")
-    // UserEntity user;
+    @ManyToOne
+    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
+     UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "product_id",referencedColumnName = "product_id")

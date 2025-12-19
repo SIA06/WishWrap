@@ -34,6 +34,10 @@ public class CustomizeEntity {
      @JoinColumn(name="product_id" , referencedColumnName = "product_id")
      ProductEntity products;
      
+     @ManyToOne
+     @JoinColumn(name="sales_id" , referencedColumnName = "sales_id")
+     SalesEntity sales;
+     
      @Column(length=25)
      String description;
    

@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -29,7 +31,8 @@ public class PurchaseEntity {
     @DateTimeFormat(pattern="dd-mm-yyyy")
     LocalDate purchaseDate;
 	
-	//@ManyToOne
-	//Supplier supplier;
+	@ManyToOne
+	@JoinColumn(name="supplier_id",referencedColumnName = "supplier_id")
+	SupplierEntity supplier;
 	
 }

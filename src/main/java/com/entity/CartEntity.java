@@ -25,9 +25,9 @@ public class CartEntity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 Integer cart_id;
 	
-	//@ManyToOne
-   // @JoinColumn(name = "user_id")
-    // UserEnity user;
+   @ManyToOne
+   @JoinColumn(name = "user_id")
+    UserEntity user;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

@@ -26,7 +26,7 @@ public class ProductImageEntity {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer image_id;
+    Integer product_image_id;
 	
 	@Column(length=100)
 	String image_name;

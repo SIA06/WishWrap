@@ -29,9 +29,9 @@ public class WishListEntity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer wishlist_id;
 	
-	//@ManyToOne
-    //@JoinColumn(name = "user_id")
-    // UserEntity user;
+	@ManyToOne
+    @JoinColumn(name = "user_id")
+     UserEntity user;
 	
 	@ManyToOne
     @JoinColumn(name = "product_id" )

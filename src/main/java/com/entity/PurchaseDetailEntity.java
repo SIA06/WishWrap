@@ -41,6 +41,9 @@ public class PurchaseDetailEntity {
 	@JoinColumn(name="purchase_id",referencedColumnName = "purchase_id")
 	PurchaseEntity purchase;
 	
-	// supplier
+	
+	@ManyToOne
+	@JoinColumn(name="supplier_id",referencedColumnName = "supplier_id")
+	SupplierEntity supplier;
 	
 }
