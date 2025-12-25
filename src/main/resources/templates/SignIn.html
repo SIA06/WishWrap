@@ -129,7 +129,7 @@
         }
 
         .options a:hover {
-            color: #8858f5;
+            color: rgb(192, 133, 201);
             transform: translateX(5px);
         }
 
@@ -216,25 +216,6 @@
         </div>
     </div>
 
-    <script>
-        function signUp() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-            let phone = document.getElementById("phone").value;
-            let question = document.getElementById("question").value;
-            let answer = document.getElementById("answer").value;
-            let message = document.getElementById("message");
-
-            if (!name || !email || !username || !password || !phone || !question || !answer) {
-                message.style.color = "red";
-                message.innerText = "⚠ Please fill all fields!";
-            } else {
-                message.style.color = "green";
-                message.innerText = "✔ Account Created Successfully!";
-            }
-        }
-    </script>
+    
 </body>
 </html>
