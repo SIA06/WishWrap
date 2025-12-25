@@ -11,16 +11,17 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Table(name="User")
+@Table(name="Users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Data
 @AllArgsConstructor
-public class UserEntity 
-{
-	@Id
+@NoArgsConstructor
+public class UserEntity {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer user_id;
 
@@ -36,10 +37,13 @@ public class UserEntity
     @JoinColumn(name = "area_id")
     AreaEntity area;
 
+    @Column(length=25)
+    String name;
+
     @Column(length=15)
     String user_name;
 
-    @Column(length=10)
+    @Column(length=50)
     String password;
 
     @Column(length=50)
@@ -48,10 +52,9 @@ public class UserEntity
     @Column(length=20)
     String phoneNo;
 
-    @Column(length=15)
+    @Column(length=100)
     String seqQue;
 
-    @Column(length=15)
+    @Column(length=100)
     String seqAns;
-
 }
