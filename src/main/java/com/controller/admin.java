@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class admin 
 {
 	@GetMapping("/dashboard")
-    public String dashboard() {
+    public String dashboard() 
+	{
         return "admin-dashboard";
     }
 }
