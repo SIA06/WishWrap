@@ -27,7 +27,7 @@ public class SignInController {
 
         String message = userService.register(user);
         model.addAttribute("message", message);
-        return "SignIn";
+        return "redirect:/login";
     }     
     }
 

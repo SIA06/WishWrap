@@ -37,10 +37,10 @@ public class UserEntity {
     @JoinColumn(name = "area_id")
     AreaEntity area;
 
-    @Column(length=25)
+    @Column(length=50)
     String name;
 
-    @Column(length=15)
+    @Column(length=50)
     String user_name;
 
     @Column(length=50)
