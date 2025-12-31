@@ -1,0 +1,757 @@
+</html>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WishWrap | Dashboard</title>
+
+  <!-- Accessibility Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="color-scheme" content="light zz" />
+  <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="WishWrap | Dashboard" />
+  <meta name="author" content="ColorlibHQ" />
+  <meta name="description"
+    content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance." />
+  <meta name="keywords"
+    content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant" />
+
+  <!-- Accessibility Features -->
+  <meta name="supported-color-schemes" content="light dark" />
+  <link rel="preload" href="/adminlte/dist/css/adminlte.css" as="style" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+    integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+    crossorigin="anonymous" media="print" onload="this.media = 'all'" />
+
+  <!-- Third Party Plugins -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    crossorigin="anonymous" />
+
+  <!-- Required Plugins -->
+  <link rel="stylesheet" href="/adminlte/dist/css/adminlte.css" />
+
+  <!-- Charts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+    integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+    integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+    crossorigin="anonymous" />
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <!--begin::App Wrapper-->
+  <div class="app-wrapper">
+    <!-- Header -->
+    <nav class="app-header navbar navbar-expand bg-body">
+      <div class="container-fluid">
+        <!-- Start Navbar Links -->
+      
+
+        <!-- End Navbar Links -->
+        <ul class="navbar-nav ms-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <form class="d-flex align-items-center" role="search">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input type="search" class="form-control border-start-0"
+                  placeholder="Search Gifts, Categories, Occasions" aria-label="Search">
+              </div>
+            </form>
+          </li><br>
+		
+		  <!-- Welcome User with Blur -->
+		  <li class="nav-item">
+		    <span class="welcome-container">
+		      <span class="welcome-text">Welcome, </span>
+		      <span class="user-name" >Customer Name</span>
+		    </span>
+		  </li>
+
+
+		  <!-- Messages Dropdown -->
+		           <li class="nav-item dropdown">
+		             <a class="nav-link" data-bs-toggle="dropdown" href="#">
+		               <i class="bi bi-chat-text"></i>
+		             </a>
+		             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+		               <a href="#" class="dropdown-item"></a>
+		               <div class="dropdown-divider"></div>
+		               <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+		             </div>
+		           </li>
+
+		           <!-- Notifications Dropdown -->
+		           <li class="nav-item dropdown">
+		             <a class="nav-link" data-bs-toggle="dropdown" href="#">
+		               <i class="bi bi-bell-fill"></i>
+		             </a>
+		             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+		               <div class="dropdown-divider"></div>
+		               <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+		             </div>
+		           </li>
+
+		           <!-- Fullscreen Toggle -->
+		           <li class="nav-item">
+		             <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+		               <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+		               <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+		             </a>
+		           </li>
+
+		           <!-- User Menu -->
+				   <li class="nav-item dropdown user-menu">
+				       <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+				           <i class="nav-icon bi bi-person-circle"></i>
+				           <span class="d-none d-md-inline">Profile</span>
+				       </a>
+				       <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-3">
+				           <li class="mb-2">
+				               <a href="#" class="btn btn-secondary w-100 btn-hover" th:href="@{/profile}">Profile Settings</a>
+				           </li>
+				           <li>
+				               <a href="#" class="btn btn-danger w-100 btn-hover" th:href="@{/logout}">Sign out</a>
+				           </li>
+				       </ul>
+				   </li>
+
+				   <!-- Add this CSS somewhere in your page -->
+				  
+
+		       </div>
+		     </nav>
+
+    <!-- Sidebar -->
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+      <div class="sidebar-brand">
+        <a href="/admin" class="brand-link">
+			<img th:src="@{/images/logo.jpeg}"
+			     class="brand-image opacity-75 shadow"
+			     style="width:50px; height: 150px;" />
+
+
+
+            <span class="brand-text fw-light"><h2><b>WishWrap</b></h2></span>
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+		
+		
+		
+        <nav class="mt-2">
+          <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"
+            aria-label="Main navigation" data-accordion="false" id="navigation">
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon bi bi-speedometer"></i>
+                <p>Dashboard<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+            </li>
+			
+            <li class="nav-item">
+              <a th:href="@{/admin/products}" class="nav-link">
+                <i class="nav-icon bi bi-box-seam-fill"></i>
+                <p>Products</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/purchase}" class="nav-link">
+                <i class="nav-icon bi bi-grid"></i>
+                <p>Categories</p>
+              </a>
+            </li>
+     
+         
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-receipt"></i>
+                <p>Sub-Categories</i></p>
+              </a>
+              
+            <li class="nav-item">
+              <a th:href="@{/admin/customization}" class="nav-link">
+                <i class="nav-icon bi bi-sliders"></i>
+                <p>Customization</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/mystery-box}" class="nav-link">
+                <i class="nav-icon bi bi-box2-heart"></i>
+                <p>Mystery-Box</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/discounts}" class="nav-link">
+                <i class="nav-icon bi bi-percent"></i>
+                <p>Offers</p>
+              </a>
+            </li>
+           
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- App Main -->
+    <main class="app-main">
+      <!-- App Content Header -->
+	  <div class="container-fluid mt-4">
+
+		<!-- HERO BANNER -->
+		<!-- HERO BANNER -->
+		<div class="container-fluid mb-5">
+		  <div class="hero-banner d-flex align-items-center justify-content-between">
+
+		    <!-- LEFT CONTENT -->
+		    <div class="hero-left">
+		      <h1>Make Every<br>Moment Special</h1>
+		      <p>Festive Offers | Birthday Gifts<br>Anniversary Specials</p>
+
+		   
+		    
+		  </div>
+		 
+		    <
+
+		    <!-- AI ASSIST CARD -->
+		    <div class="ai-card">
+		      <h5>🤖Ask AI for your gift</h5>
+		      
+		      <a href="#" class="ai-btn"> GET GIFT IDEAS</a>
+		    </div>
+		  </div>
+
+		</div>
+
+
+			    <!-- TOP CATEGORIES -->
+			    <h2 class="mb-3">Top Categories</h2>
+
+			    <div class="row g-4">
+
+			      <div class="col-md-4">
+			        <div class="card text-center">
+						<a th:href="@{/birthday}">
+						<img th:src="@{/images/cake.jpeg}" class="card-img-top"></a>
+			          <div class="card-body">
+			            <h6>Birthday Gifts</h6>
+			          </div>
+					  
+			        </div>
+			      </div>
+
+			      <div class="col-md-4">
+			        <div class="card text-center">
+						<a th:href="@{/birthday}">
+			          <img th:src="@{/images/aniversary.jpeg}" class="card-img-top"></a>
+			          <div class="card-body">
+			            <h6>Anniversary Gifts</h6>
+			          </div>
+			        </div>
+			      </div>
+
+			      <div class="col-md-4">
+			        <div class="card text-center">
+						<a th:href="@{/birthday}">
+			          <img th:src="@{/images/gift.jpeg}" class="card-img-top"></a>
+			          <div class="card-body">
+			            <h6>Festival Gifts</h6>
+			          </div>
+			        </div>
+			      </div>
+
+			      <div class="col-md-4">
+			        <div class="card text-center">
+						<a th:href="@{/birthday}">
+			          <img th:src="@{/images/candle.jpeg}" class="card-img-top"></a>
+			          <div class="card-body">
+			            <h6>Candles</h6>
+			          </div>
+			        </div>
+			      </div>
+
+			      <div class="col-md-4">
+			        <div class="card text-center">
+						<a th:href="@{/birthday}">
+			          <img th:src="@{/images/toy.jpeg}" class="card-img-top"></a>
+			          <div class="card-body">
+			            <h6>Soft Toys</h6>
+			          </div>
+			        </div>
+			      </div>
+
+			      <div class="col-md-4">
+			        <div class="card text-center">
+						<a th:href="@{/birthday}">
+			          <img th:src="@{/images/perfume.jpeg}" class="card-img-top"></a>
+			          <div class="card-body">
+			            <h6>Perfumes</h6>
+			          </div>
+			        </div>
+	      </div>
+		  <div style="position: relative; height: 300px; border-radius: 20px; overflow: hidden; margin: 20px 0; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));">
+		    
+			<div style="position: relative; height: 300px; border-radius: 25px; overflow: hidden; margin: 20px 0; 
+			            box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+			  
+						<div style="position: relative; height: 250px; width: 90%; margin: 20px auto; border-radius: 25px; overflow: hidden; 
+						            box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+						  
+						  <!-- SMALLER CENTERED IMAGE -->
+						  <img th:src="@{/images/gift-perfume.jpeg}" 
+						       style="width: 100%; height: 100%; object-fit: cover; 
+						              border-radius: 25px; 
+						              box-shadow: 0 15px 40px rgba(0,0,0,0.4);"
+						       alt="Categories">
+						  
+						  <!-- THREE OPTIONS AT BOTTOM -->
+						  <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; z-index: 2; 
+						              display: flex; justify-content: space-between; align-items: center;" >
+						    
+						    <a th:href="@{/birthday}" style="text-decoration: none; flex: 1; text-align: center; 
+						                color: rgb(19, 39, 108); font-size: 1.8rem; font-weight: bold; padding: 12px; 
+						                border-radius: 15px; background: rgba(255,255,255,0.25); 
+						                backdrop-filter: blur(10px); transition: all 0.3s; margin: 0 5px;">
+						      CART
+						    </a>
+						    
+						    <a th:href="@{/anniversary}" style="text-decoration: none; flex: 1; text-align: center; 
+						                color: rgb(19, 39, 108); font-size: 1.8rem; font-weight: bold; padding: 12px; 
+						                border-radius: 15px; background: rgba(255,255,255,0.25); 
+						                backdrop-filter: blur(10px); transition: all 0.3s; margin: 0 10px;">
+						      WISHLIST
+						    </a>
+						    
+						    <a th:href="@{/festival}" style="text-decoration: none; flex: 1; text-align: center; 
+						                color: rgb(19, 39, 108); font-size: 1.8rem; font-weight: bold; padding: 12px; 
+						                border-radius: 15px; background: rgba(255,255,255,0.25); 
+						                backdrop-filter: blur(10px); transition: all 0.3s; margin: 0 5px;">
+						      ORDER
+						    </a>
+						    
+						  </div>
+						</div>
+
+			 
+
+
+
+          
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="float-end d-none d-sm-inline">Anything you want</div>
+      <strong>Copyright <i class="bi bi-c-circle"></i>
+        <a href="https://adminlte.io" class="text-decoration-none">WishWrap</a>.
+      </strong> All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="/adminlte/dist/js/adminlte.js"></script>
+	
+	<!-- OverlayScrollbars Config -->
+	  <script>
+	    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+	    const Default = {
+	      scrollbarTheme: 'os-theme-light',
+	      scrollbarAutoHide: 'leave',
+	      scrollbarClickScroll: true,
+	    };
+	    document.addEventListener('DOMContentLoaded', function() {
+	      const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+	      const isMobile = window.innerWidth <= 992;
+	      if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+	        OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+	          scrollbars: {
+	            theme: Default.scrollbarTheme,
+	            autoHide: Default.scrollbarAutoHide,
+	            clickScroll: Default.scrollbarClickScroll,
+	          },
+	        });
+	      }
+	    });
+	  </script>
+  <!-- Styles -->
+  <style>
+    body, .app-wrapper, .app-header, .app-sidebar, .card, .form-control {
+      font-family: "Baskerville Old Face", serif;
+      font-weight: bold;
+    }
+
+   
+
+
+	.app-main {
+        background: linear-gradient(to bottom, rgb(255, 253, 236));
+	}
+
+    .card-header { padding: 0.75rem 1rem; }
+    .card-title { font-size: 1.1rem; margin: 0; }
+	
+	/* Sidebar background */
+	.app-sidebar {
+	  background-color: rgb(9, 69, 119)  !important;
+	}
+
+	/* Sidebar brand (top logo area) */
+	.app-sidebar .sidebar-brand {
+	  background-color: rgb(9, 69, 119) !important;
+	}
+
+	/* Sidebar text */
+	.app-sidebar,
+	.app-sidebar * {
+	  color: rgb(255, 255, 255) !important;
+	}
+	.app-sidebar .sidebar-brand {
+	  background-color: rgb(244, 244, 244) !important; /* black */
+	}
+	/* Sidebar links */
+	.app-sidebar .nav-link {
+	  color: rgb(255, 255, 255) !important;
+	}
+	
+	.brand-text * { color: rgb(0, 0, 128) !important; }
+
+
+	/* Sidebar icons */
+	.app-sidebar .nav-icon,
+	.app-sidebar i {
+	  color: rgb(255, 255, 255) !important;
+	}
+
+	/* Hover effect */
+	.app-sidebar .nav-link:hover {
+	  background-color: rgb(9, 69, 119) !important;
+	  color: rgb(255, 255, 255) !important;
+	}
+
+	/* Active menu item */
+	.app-sidebar .nav-link.active {
+	  background-color: rgb(9, 69, 119) !important;
+	  color: rgb(255, 255, 255) !important;
+	}
+
+	.brand-image {
+	         /* keep aspect ratio */
+	  opacity: 0.8;       /* transparency */
+	  border-radius: 8px;  /* rounded corners */
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* shadow */
+	  background-color: transparent !important;
+	  }
+	  
+	  /* Welcome User Styling */
+	 
+
+	  .navbar .welcome-user:hover {
+	    background: rgba(255, 255, 255, 0.25);
+	    transform: translateY(-2px);
+	  }
+
+	  
+	  .welcome-container {
+	    flex-direction: row !important;
+	    align-items: center;
+	    gap: 0.4rem;
+	    padding: 0.4rem 1rem;
+	    white-space: nowrap;
+	    flex-direction: column !important;
+	    align-items: flex-start;
+	  }
+
+	  
+
+	  .welcome-text {
+	    color: rgb(64, 0, 64) !important;  /* Red */
+	    font-size: 1.1rem;
+		margin-left: 2.5vw !important;
+	  }
+
+	  .user-name {
+	    color: rgb(9, 69, 119) !important;  /* Pink */
+	    font-size: 1.3rem;
+	    margin-top: 0.2rem;
+	  
+	  }
+	  
+	  /* ===== Navbar Search Bar Styling ===== */
+	  .navbar .input-group {
+	    background: #ffffff;
+	    border-radius: 25px;
+	    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+	    overflow: hidden;
+	  }
+
+	  .navbar .input-group-text {
+	    background: transparent;
+	    border: none;
+	    padding-left: 1rem;
+	    color: #6c757d;
+	  }
+
+	  .navbar .form-control {
+	    border: none;
+	    border-radius: 25px;
+	    box-shadow: none !important;
+	    padding: 0.6rem 1rem;
+	    font-size: 0.95rem;
+	  }
+
+	  .navbar .form-control:focus {
+	    box-shadow: none;
+	  }
+	  /* ===== Make Navbar Search Bar Longer ===== */
+	  .navbar .nav-item form {
+	    width: 480px; 
+		  /* adjust this value */
+	  }
+
+	  .navbar .nav-item .input-group {
+	    width: 100%;
+	  }
+	  
+	  /* Top Categories Cards - BIGGER IMAGES + BLACK TEXT */
+	  .card {
+	      border: none !important;
+	      border-radius: 20px !important;
+	      overflow: hidden;
+	      box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+	      transition: all 0.3s ease;
+	      height: 200px !important; /* Fixed height */
+	      width: 300px !important; /* EXACT 300px */
+	      margin: 0 auto; /* Center cards */
+	  }
+	  .card:hover {
+	      transform: translateY(-10px);
+	      box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+	  }
+
+	  .card-img-top {
+	      border-radius: 20px 20px 0 0 !important;
+	      height: 150px !important; /* MUCH bigger images */
+	      width: 100%;
+	      object-fit: cover;
+	  }
+
+	  .card {
+	      border: none !important;
+	      border-radius: 20px !important;
+	      overflow: hidden;
+	      box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+	      transition: all 0.3s ease;
+	      height: 200px !important; /* Fixed height */
+	      width: 300px !important; /* EXACT 300px */
+	      margin: 0 auto; /* Center cards */
+	  }
+
+	  .card h6 {
+	      font-size: 1.5rem !important; /* Even bigger */
+	      font-weight: 900 !important; /* Ultra bold */
+	      color: rgb(19, 37, 108) !important; /* BLACK text - overrides red */
+	      text-shadow: none;
+	      margin: 0;
+	      line-height: 1.2;
+	  }
+	
+	  /* Hover Lift Effect */
+	  
+	  /* ===== HERO WITH BACKGROUND IMAGE ===== */
+	  .hero-banner {
+	    display: flex !important;
+	    flex-direction: row !important;
+	    align-items: center !important;
+
+	    height: 340px;
+	    padding: 40px;
+
+	    background-image: url('/images/layout.jpeg'); /* SAME IMAGE */
+	    background-size: cover;
+	    background-position: right center;
+	    background-repeat: no-repeat;
+
+	    border-radius: 25px;
+	    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+	    position: relative;
+	  }
+
+	  /* SOFT OVERLAY (matches screenshot look) */
+	  .hero-banner::before {
+	    content: "";
+	    position: absolute;
+	    inset: 0;
+	    background: linear-gradient(
+	      90deg,
+	      rgba(255,255,255,0.85) 0%,
+	      rgba(255,255,255,0.55) 40%,
+	      rgba(255,255,255,0.15) 65%,
+	      rgba(255,255,255,0) 80%
+	    );
+	    border-radius: 25px;
+	  }
+
+
+	  /* TEXT ALWAYS ABOVE IMAGE */
+	  .hero-left {
+	    position: relative;
+	    z-index: 2;
+	    width: 50%;
+	  }
+
+	  /* TEXT STYLE */
+	  .hero-left h1 {
+	    font-size: 3rem;
+	    font-weight: 900;
+	    line-height: 1.1;
+	    color: rgb(0, 0, 64);
+	  }
+
+	
+	  /* HOVER EFFECT FOR INLINE-STYLED GLASS BUTTONS */
+	  a[style*="backdrop-filter"] {
+	    transition: all 0.35s ease !important;
+	  }
+
+	  a[style*="backdrop-filter"]:hover {
+	    transform: translateY(-6px) scale(1.05);
+	    background: rgba(255,255,255,0.45) !important;
+
+	    box-shadow:
+	      0 12px 30px rgba(0,0,0,0.25),
+	      0 0 18px rgba(255,255,255,0.6);
+
+	    color: rgb(0, 0, 128) !important;
+	  }
+
+	  /* CLICK EFFECT */
+	  a[style*="backdrop-filter"]:active {
+	    transform: scale(0.96);
+	  }
+
+	  /* ===== HERO WRAPPER ===== */
+	  .hero-wrapper {
+	    position: relative;
+	    margin-bottom: 100px;
+	  }
+
+	  /* ===== HERO BANNER ===== */
+	  .ai-card {
+	        position: absolute;
+	        bottom: -50px;           /* 50px outside the banner */
+	        left: 40px;
+	        width: 280px;
+	        padding: 22px;
+	        background: rgb(244, 250, 222);
+	        border-radius: 20px;
+	        box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+	        z-index: 5;
+	    }
+
+	  /* LIGHT OVERLAY */
+	  .hero-banner::before {
+	    content: "";
+	    position: absolute;
+	    inset: 0;
+	    background: linear-gradient(
+	      90deg,
+	      rgba(255,255,255,0.85) 0%,
+	      rgba(255,255,255,0.6) 40%,
+	      rgba(255,255,255,0.15) 65%,
+	      rgba(255,255,255,0) 80%
+	    );
+	  }
+
+	  /* HERO TEXT */
+	  .hero-left {
+	    position: relative;
+	    z-index: 2;
+	    width: 50%;
+	  }
+
+	  .hero-left h1 {
+	    font-size: 3rem;
+	    font-weight: 900;
+	    color: rgb(19, 39, 108);
+	  }
+
+	  .ai-card {
+	        position: absolute;
+	        bottom: -40px;           /* 50px outside the banner */
+	        left: 40px;
+	        width: 280px;
+	        padding: 22px;
+	        background: rgb(244, 250, 222);
+	        border-radius: 20px;
+	        box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+	        z-index: 5;
+	    }
+
+	  .ai-card h5 {
+	    font-weight: 800;
+	    margin-bottom: 4px;
+	    color: rgb(19, 39, 108);
+	  }
+
+	  .ai-card p {
+	    font-size: 0.95rem;
+	    margin-bottom: 12px;
+	    color: #555;
+	  }
+
+	  /* AI BUTTON */
+	  .ai-btn {
+	    display: inline-block;
+	    padding: 10px 18px;
+	    border-radius: 12px;
+        font-style: 'arial black';
+	    background: rgb(191, 157, 103);
+	    color: #fff;
+	    font-weight: 600;
+	    text-decoration: none;
+
+	    transition: all 0.3s;
+	  }
+
+	  .ai-btn:hover {
+	    background: rgb(170, 135, 85);
+	    transform: translateY(-2px);
+	  }
+
+	  .btn-hover:hover {
+	      filter: brightness(1.1); /* slightly brighter on hover */
+	      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* subtle shadow */
+	  }
+	  <style>
+	  .btn-hover {
+	      transition: all 0.2s ease; /* smooth hover */
+	  }
+	  .btn-hover:hover {
+	      transform: translateY(-3px); /* move up slightly */
+	      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* subtle shadow */
+	  }
+  </style>
+</body>
+
+</html>
