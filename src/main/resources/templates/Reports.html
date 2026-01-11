@@ -1,0 +1,1307 @@
+]]]]<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WishWrap | Dashboard</title>
+
+  <!-- Accessibility Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="color-scheme" content="light zz" />
+  <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="WishWrap | Dashboard" />
+  <meta name="author" content="ColorlibHQ" />
+  <meta name="description"
+    content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance." />
+  <meta name="keywords"
+    content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant" />
+
+  <!-- Accessibility Features -->
+  <meta name="supported-color-schemes" content="light dark" />
+  <link rel="preload" href="/adminlte/dist/css/adminlte.css" as="style" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+    integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+    crossorigin="anonymous" media="print" onload="this.media = 'all'" />
+
+  <!-- Third Party Plugins -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    crossorigin="anonymous" />
+
+  <!-- Required Plugins -->
+  <link rel="stylesheet" href="/adminlte/dist/css/adminlte.css" />
+
+  <!-- Charts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+    integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+    integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+    crossorigin="anonymous" />
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <!--begin::App Wrapper-->
+  <div class="app-wrapper">
+    <!-- Header -->
+    <nav class="app-header navbar navbar-expand bg-body">
+      <div class="container-fluid">
+        <!-- Start Navbar Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <i class="bi bi-list"></i>
+            </a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+        <!-- End Navbar Links -->
+        <ul class="navbar-nav ms-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <form class="d-flex align-items-center" role="search">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input type="search" class="form-control border-start-0"
+                  placeholder="Search products, orders, customers..." aria-label="Search">
+              </div>
+            </form>
+          </li>
+
+          <!-- Messages Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <i class="bi bi-chat-text"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <a href="#" class="dropdown-item"></a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+            </div>
+          </li>
+
+          <!-- Notifications Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <i class="bi bi-bell-fill"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            </div>
+          </li>
+
+          <!-- Fullscreen Toggle -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+              <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+            </a>
+          </li>
+
+          <!-- User Menu -->
+          <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="nav-icon bi bi-person-circle"></i>
+              <span class="d-none d-md-inline">profile</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <li class="user-footer">
+                <a href="#" class="btn btn-outline-secondary" th:href="@{/profile}">Profile Settings</a>
+                <a href="#" class="btn btn-outline-danger float-end" th:href="@{/logout}">Sign out</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+      <div class="sidebar-brand">
+        <a href="/admin" class="brand-link">
+          <img th:src="@{/images/logo.jpeg}"
+               class="brand-image opacity-75 shadow"
+               style="width:50px; height: 150px;" />
+          <span class="brand-text fw-light"><h2><b>WishWrap</b></h2></span>
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <nav class="mt-2">
+          <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"
+            aria-label="Main navigation" data-accordion="false" id="navigation">
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon bi bi-speedometer"></i>
+                <p>Dashboard<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/products}" class="nav-link">
+                <i class="nav-icon bi bi-box-seam-fill"></i>
+                <p>Products</p>
+              </a>
+            </li>
+			<li class="nav-item">
+			             <a href="#" class="nav-link">
+			               <i class="nav-icon bi bi-receipt"></i>
+			               <p>Purchase<i class="nav-arrow bi bi-chevron-right"></i></p>
+			             </a>
+					  <ul class="nav nav-treeview">
+					                  <li class="nav-item">
+					                    <a th:href="@{/admin/customers/cart}" class="nav-link">
+					                      <i class="nav-icon bi bi-circle"></i>
+					                      <p>Purchase Details</p>
+					                    </a>
+					                  </li>
+					                  <li class="nav-item">
+					                    <a th:href="@{/admin/customers/wishlist}" class="nav-link">
+					                      <i class="nav-icon bi bi-circle"></i>
+					                      <p>Purchase Return Details</p>
+					                    </a>
+					                  </li>
+					                </ul>
+			           </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-receipt"></i>
+                <p>Orders<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+			  <ul class="nav nav-treeview">
+			                  <li class="nav-item">
+			                    <a th:href="@{/admin/customers/cart}" class="nav-link">
+			                      <i class="nav-icon bi bi-circle"></i>
+			                      <p>Orders Details</p>
+			                    </a>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a th:href="@{/admin/customers/wishlist}" class="nav-link">
+			                      <i class="nav-icon bi bi-circle"></i>
+			                      <p>Order Return Details</p>
+			                    </a>
+			                  </li>
+			                </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-person"></i>
+                <p>Customers<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a th:href="@{/admin/customers/cart}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Cart</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a th:href="@{/admin/customers/wishlist}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Wishlist</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/customization}" class="nav-link">
+                <i class="nav-icon bi bi-sliders"></i>
+                <p>Customization</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/mystery-box}" class="nav-link">
+                <i class="nav-icon bi bi-box2-heart"></i>
+                <p>Mystery-Box</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/discounts}" class="nav-link">
+                <i class="nav-icon bi bi-percent"></i>
+                <p>Discounts</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-grid"></i>
+                <p>Categories<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a th:href="@{/admin/categories/subcategories}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Sub-Categories</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a th:href="@{/admin/categories/brand}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Brand</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/reports}" class="nav-link">
+                <i class="nav-icon bi bi-bar-chart"></i>
+                <p>Reports</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- App Main -->
+    <divmain class="app-main">
+      <!-- App Content Header -->
+      <div class="app-content-header">
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-sm-12 d-flex align-items-center justify-content-between">
+			  <h3 class="mb-0">Admin Report Management</h3>
+
+			  <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#filterModal">
+			    <i class="bi bi-funnel-fill"></i> Filter
+			  </button>
+			</div>
+
+						  
+          </div>
+        </div>
+      </div>
+	  <div class="modal fade" id="filterModal" tabindex="-1">
+	    <div class="modal-dialog modal-lg modal-dialog-centered">
+	      <div class="modal-content">
+
+	        <div class="modal-header">
+	          <h5 class="modal-title">Filter & Sort Orders</h5>
+	          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	        </div>
+
+	        <div class="modal-body">
+	          <div class="row g-3">
+
+	            <div class="col-md-6">
+	              <label class="form-label"> Date Range</label>
+	              <div class="d-flex gap-2">
+	                <input type="date" class="form-control">
+	                <input type="date" class="form-control">
+	              </div>
+	            </div>
+
+	          
+
+
+	            <div class="col-md-6">
+	              <label class="form-label">Select Report Type</label>
+	              <div class="d-flex gap-2">
+	                <select class="form-select">
+						<option value="" selected disabled hidden>Select Report Type</option>
+						<option>None</option>
+	                  <option>Generate Invoice</option>
+	                  <option>Time-Wise Reports</option>
+	                  <option>Purchase Reports</option>
+					  <option> Purchase Return Reports</option>
+					  <option>Cancellation Reports</option>
+					  <option>Order Reports</option>
+					  <option>Order Return  Reports</option>
+					  <option>Payment Reports</option>
+					  <option>Sales Reports</option>
+					  <option>Inventory Reports</option>
+					  <option> Feedback-Rating Reports</option>
+	                </select>
+	                
+	              </div>
+	            </div>
+
+	          </div>
+	        </div>
+
+	        <div class="modal-footer">
+	          <button class="btn btn-primary">Apply Filters</button>
+	          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Clear</button>
+	        </div>
+
+	      </div>
+	    </div>
+	  </div>
+
+	  <div class="main">
+	  <div class="card">
+
+	  <h2>Generate Report</h2>
+
+	  <div class="layout">
+
+	      <!-- LEFT -->
+	  <div class="box report-types">
+	      <h3><span class="report-icon">📊</span>Select Report Type</h3>
+	      <ul id="reportList">
+	          <li data-value="INVOICE">💰 Generate Invoice</li>
+	          <li data-value="TIME_WISE" class="active">⏰ Time-Wise Reports</li>
+	          <li data-value="PURCHASE">🛒 Purchase Reports</li>
+	          <li data-value="PURCHASE_RETURN">↩️ Purchase Return Reports</li>
+	          <li data-value="CANCELLATION">❌ Cancellation Reports</li>
+	          <li data-value="ORDER">📋 Order Reports</li>
+	          <li data-value="ORDER_RETURN">🔄 Order Return Reports</li>
+	          <li data-value="PAYMENT">💳 Payment Reports</li>
+	          <li data-value="SALES">📈 Sales Reports</li>
+	          <li data-value="INVENTORY">📦 Inventory Reports</li>
+	          <li data-value="FEEDBACK">⭐ Feedback-Rating Reports</li>
+	      </ul>
+	  </div>
+
+	      <!-- RIGHT -->
+	      <div>
+	          <div class="box date-box">
+	              <h3><span class="report-icon">📅</span>Date Range</h3>
+
+	              <input type="hidden" id="reportType" value="TIME_WISE">
+
+	              <div class="date-grid">
+	                  <div>
+	                      <label>Start Date</label>
+	                      <input type="date">
+	                  </div>
+	                  <div>
+	                      <label>End Date</label>
+	                      <input type="date">
+	                  </div>
+	              </div>
+
+	              <button class="generate-btn" onclick="generateReport()">Generate Report</button>
+	          </div>
+
+	          <!-- TABLE JUST BELOW DATE BOX -->
+	          <div class="box table-box">
+	              <h3><span class="report-icon">📋</span>Generated Reports</h3>
+
+	              <table>
+	                  <thead>
+	                      <tr>
+	                          <th>Report Type</th>
+	                          <th>Date Range</th>
+	                          <th>Action</th>
+	                      </tr>
+	                  </thead>
+	                  <tbody>
+	                      <tr>
+	                          <td>Time-Wise Reports</td>
+	                          <td>2023-03-01 to 2023-03-31</td>
+	                          <td><a href="#" class="download">Download</a></td>
+	                      </tr>
+	                  </tbody>
+	              </table>
+	          </div>
+	      </div>
+
+	  </div>
+
+	  </div>
+	  </div>
+</div><main>
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="float-end d-none d-sm-inline">Anything you want</div>
+      <strong>Copyright <i class="bi bi-c-circle"></i>
+        <a href="https://adminlte.io" class="text-decoration-none">WishWrap</a>.
+      </strong> All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="/adminlte/dist/js/adminlte.js"></script>
+
+  <!-- OverlayScrollbars Config -->
+  <script>
+    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+    const Default = {
+      scrollbarTheme: 'os-theme-light',
+      scrollbarAutoHide: 'leave',
+      scrollbarClickScroll: true,
+    };
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+      const isMobile = window.innerWidth <= 992;
+      if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+        OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+          scrollbars: {
+            theme: Default.scrollbarTheme,
+            autoHide: Default.scrollbarAutoHide,
+            clickScroll: Default.scrollbarClickScroll,
+          },
+        });
+      }
+    });
+  </script>
+
+  <script>
+  let currentFilter = { type: "", value: "" };
+
+  function selectFilter(type, value) {
+    currentFilter = { type, value };
+    document.querySelector('.dropbtn').textContent = type + " → " + value;
+  }
+
+  function applyFilters() {
+    const search = document.getElementById("searchInput").value.toLowerCase();
+    const type = currentFilter.type.toLowerCase();
+    const value = currentFilter.value.toLowerCase();
+    const rows = document.querySelectorAll("table tbody tr");
+
+    rows.forEach(row => {
+      const cells = row.cells;
+      const userName = cells[0].innerText.toLowerCase();
+      const priceVal = parseFloat(cells[2].innerText);
+      const paymentMethod = cells[6].innerText.toLowerCase();
+      const genderVal = cells[9] ? cells[9].innerText.toLowerCase() : "";
+      const colorVal = cells[10] ? cells[10].innerText.toLowerCase() : "";
+      const sizeVal = cells[11] ? cells[11].innerText.toLowerCase() : "";
+      const brandVal = cells[12] ? cells[12].innerText.toLowerCase() : "";
+      const typeVal = cells[13] ? cells[13].innerText.toLowerCase() : "";
+
+      let show = true;
+
+      if(type === "payment" && value && !paymentMethod.includes(value)) show = false;
+      if(type === "price" && value){
+        const [min,max] = value.split("-").map(Number);
+        if(priceVal < min || priceVal > max) show = false;
+      }
+      if(type === "gender" && value && !genderVal.includes(value)) show = false;
+      if(type === "color" && value && !colorVal.includes(value)) show = false;
+      if(type === "size" && value && !sizeVal.includes(value)) show = false;
+      if(type === "brand" && value && !brandVal.includes(value)) show = false;
+      if(type === "type" && value && !typeVal.includes(value)) show = false;
+
+      if(search && !userName.includes(search)) show = false;
+
+      row.style.display = show ? "" : "none";
+    });
+  }
+  </script>
+
+
+  <!-- Styles -->
+  <style>
+    /* ================= GLOBAL FONT ================= */
+    body,
+    .app-wrapper,
+    .app-header,
+    .app-sidebar,
+    .card,
+    .form-control {
+      font-family: "Baskerville Old Face", serif;
+      font-weight: bold;
+    }
+
+    /* ================= BACKGROUNDS ================= */
+    .full-width-container {
+      display: flex;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      padding: 2rem 0;
+      background: linear-gradient(to bottom, #87cefa, #b3d9c3);
+    }
+
+    .app-main {
+      background: linear-gradient(to bottom, #b3d9c3, #87cefa);
+    }
+
+    /* ================= SIDEBAR ================= */
+    .app-sidebar,
+    .app-sidebar .sidebar-brand {
+      background-color: rgb(95, 158, 160) !important;
+    }
+
+    .app-sidebar,
+    .app-sidebar * ,
+    .app-sidebar .nav-link,
+    .app-sidebar .nav-icon,
+    .app-sidebar i {
+      color: #000000 !important;
+    }
+
+    .app-sidebar .nav-link:hover,
+    .app-sidebar .nav-link.active {
+      background-color: rgb(95, 158, 160) !important;
+      color: #000000 !important;
+    }	  .custom-dropdown {
+	    position: relative;
+	    display: inline-block;
+	  }
+
+	  .dropbtn {
+	    padding: 8px 12px;
+	    font-size: 14px;
+	    cursor: pointer;
+	    border-radius: 6px;
+	    border: 1px solid #ccc;
+	    background: #ffffff;
+	  }
+
+	  .dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #fff;
+	    min-width: 180px;
+	    border: 1px solid #ccc;
+	    z-index: 1000;
+	  }
+
+	  .custom-dropdown:hover .dropdown-content {
+	    display: block;
+	  }
+
+	  .dropdown-item {
+	    padding: 8px 12px;
+	    cursor: pointer;
+	    position: relative;
+	  }
+
+	  .dropdown-item:hover {
+	    background: #f0f0f0;
+	  }
+
+	  .sub-dropdown {
+	    display: none;
+	    position: absolute;
+	    left: 100%;
+	    top: 0;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    min-width: 150px;
+	  }
+
+	  .dropdown-item.has-sub:hover .sub-dropdown {
+	    display: block;
+	  }
+
+	  .sub-dropdown div {
+	    padding: 8px 12px;
+	    cursor: pointer;
+	  }
+
+	  .sub-dropdown div:hover {
+	    background: #e0e0e0;
+	  }
+
+
+    .brand-image {
+      opacity: 0.8;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background-color: transparent !important;
+    }
+
+	table {
+		  width: 100%;
+		  border-collapse: collapse;      /* solid single borders */
+		       
+		  background: #ffffff;
+		}
+
+		/* ================= HEADER ================= */
+		/* HIGHLIGHTED HEADER */
+		table thead th {
+		  background: rgb(192, 192, 192);
+		  color: rgb(0, 0, 128);
+		  padding: 4px 6px;
+		  font-size: 20px;
+		  font-weight: 600;
+		  text-align: center;
+		  text-transform: lowercase;   /* ✅ THIS MAKES SMALL LETTERS */
+		  border: 1px solid #6b7280;
+		}
+
+		/* ================= BODY CELLS ================= */
+		table tbody td {
+		  padding: 6px 8px;               /* SLIM ROW HEIGHT */
+		  font-size: 19px;
+		  font-weight: 600;
+		  text-align: center;
+		  border: 1px solid #d1d5db;      /* CELL BORDERS */
+		}
+
+		/* ================= ROW STYLE ================= */
+		table tbody tr {
+		  background: #ffffff;
+		}
+
+		/* ================= HOVER ================= */
+		table tbody tr:hover {
+		  background: #f1f5f9;
+		}
+
+
+		/* ================= BADGES ================= */
+		.badge {
+		  display: inline-block;
+		  padding: 4px 12px;
+		  border-radius: 12px;
+		  font-size: 12px;
+		  color: #ffffff;
+		}
+
+		.badge-danger {
+		  background: #ef4444;
+		}
+	/* ================= LAYOUT ================= */
+	.main {
+	  width: 100%;
+	  max-width: 1100px;
+	  margin-top: 40px;
+	}
+
+	.section {
+	  padding: 25px;
+	}
+
+	.section + .section {
+	  margin-top: 30px;
+	  border-top: 2px solid #e5e7eb;
+	}
+
+	/* ================= TOOLBAR ================= */
+	.toolbar {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  margin-bottom: 15px;
+	}
+
+	.toolbar-left {
+	  display: flex;
+	  gap: 10px;
+	}
+
+	.toolbar input {
+	  padding: 8px 12px;
+	  border-radius: 6px;
+	  border: 1px solid #cbd5e1;
+	  width: 220px;
+	}
+
+	.btn-add {
+	  padding: 8px 16px;
+	  background: #6366f1;
+	  color: #ffffff;
+	  border: none;
+	  border-radius: 6px;
+	  cursor: pointer;
+	  font-size: 14px;
+	}
+
+	.btn-add:hover {
+	  background: #4f46e5;
+	}
+	/* ---------- Filter Button ---------- */
+	.dropbtn {
+	  padding: 2px 10px;          /* Adjust padding */
+	  font-size: 20px;             /* Adjust font size */
+	  font-weight: 600;
+	  cursor: pointer;
+	  border-radius: 8px;          /* Rounded corners */
+	  border: 1px solid rgb(128, 128, 128);  /* Border color */
+	  background-color: rgb(192, 192, 192);   /* Button color */
+	  color: rgb(0, 0, 0);              /* Text color */
+	  transition: all 0.3s ease;
+	}
+	
+
+	/* Hover effect */
+	.dropbtn:hover {
+	  background-color: #4f46e5;
+	  color: #ffffff;
+	}
+
+	/* ---------- Dropdown Container ---------- */
+	.custom-dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* ---------- Dropdown Content ---------- */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  right: 10;     
+	   font-size: 20px;                  /* Right-aligned */
+	 background: linear-gradient(to bottom, rgb(131, 165, 243), #b3d9c3);
+	  min-width: 200px;
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  z-index: 1000;
+	  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	}
+
+	/* Show dropdown on hover */
+	.custom-dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+	/* ---------- Dropdown Items ---------- */
+	.dropdown-item {
+	  padding: 10px 14px;
+	  cursor: pointer;
+	  position: relative;
+	  font-weight: 500;
+	  background: linear-gradient( #b3d9c3);
+	  transition: background 0.2s ease;
+	}
+
+	.dropdown-item:hover {
+	  background-color: #f0f0f0;
+	}
+
+	/* ---------- Sub-dropdown (nested) ---------- */
+	.sub-dropdown {
+	  display: none;
+	  position: absolute;
+	  left: 100%;     /* Appears to the right */
+	  top: 0;
+	  background: linear-gradient(to bottom, rgb(192, 192, 192));
+	  border: 1px solid #ccc;
+	  border-radius: 6px;
+	  min-width: 180px;
+	  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	}
+
+	.dropdown-item.has-sub:hover .sub-dropdown {
+	  display: block;
+	}
+
+	.sub-dropdown div {
+	  padding: 8px 12px;
+	  cursor: pointer;
+	}
+
+	.sub-dropdown div:hover {
+	  background-color: #e0e0e0;
+	}
+
+	/* ---------- Optional: Change margin of filter button ---------- */
+	.custom-dropdown {
+	  margin-left: auto; /* You can override in HTML */
+	}
+	/* ================= EXPORT DROPDOWN ================= */
+	.export-dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+	/* DETAILS BUTTON */
+	.details-btn {
+	  padding: 6px 14px;
+	  font-size: 14px;
+	  font-weight: 600;
+	  border-radius: 6px;
+	  border: 1px solid #2563eb;
+	  background-color: #3b82f6;
+	  color: #ffffff;
+	  cursor: pointer;
+	}
+
+	.details-btn:hover {
+	  background-color: #1d4ed8;
+	}
+
+	/* DETAILS MODAL CONTENT */
+	.details-grid {
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  gap: 14px;
+	}
+
+	.detail-box {
+	  background: #f8fafc;
+	  border: 1px solid #cbd5e1;
+	  border-radius: 8px;
+	  padding: 10px 14px;
+	}
+
+	.detail-box span {
+	  font-size: 13px;
+	  font-weight: 700;
+	  color: #334155;
+	}
+
+	.detail-box p {
+	  margin: 4px 0 0;
+	  font-size: 15px;
+	  font-weight: 600;
+	  color: #0f172a;
+	}
+
+
+	.export-btn {
+	  padding: 6px 14px;
+	  font-size: 14px;
+	  font-weight: 600;
+	  border-radius: 6px;
+	  border: 1px solid rgb(0, 0, 255);
+	  background-color: #22c55e;
+	  color: #ffffff;
+	  cursor: pointer;
+	}
+
+	.export-btn:hover {
+	  background-color: #16a34a;
+	}
+
+	.export-menu {
+	  display: none;
+	  position: absolute;
+	  top: 100%;
+	  left: 0;
+	  min-width: 120px;
+	  background: rgb(192, 192, 192);
+	  border: 1px solid #cbd5e1;
+	  border-radius: 6px;
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+	  z-index: 2000;
+	}
+
+	.export-menu div {
+	  padding: 8px 12px;
+	  cursor: pointer;
+	  font-size: 14px;
+	}
+
+	.export-menu div:hover {
+	  background-color: #f1f5f9;
+	}
+
+	.export-dropdown:hover .export-menu {
+	  display: block;
+	}
+	/* ===== FILTER BUTTON (TITLE RIGHT SIDE) ===== */
+	/* ===== FILTER BUTTON (SAME AS EXPORT) ===== */
+	/* ===== VERY SMALL FILTER BUTTON ===== */
+	.filter-btn {
+	  padding: 4px 8px !important;   /* VERY SMALL */
+	  font-size: 20px !important;
+	  font-weight: 600 !important;
+	  border-radius: 4px !important;
+	  border: 1px solid #2563eb;
+	  background-color: rgb(0, 128, 128);
+	  color: #ffffff;
+	  line-height: 1.2;
+	  display: inline-flex;
+	  align-items: center;
+	  gap: 4px;
+	}
+
+	.filter-btn i {
+	  font-size: 12px;
+	}
+
+
+
+	/* ===== OPTION 1: SHOW FEW COLUMNS ONLY (CSS ONLY) ===== */
+	/* Change column numbers if needed */
+
+	/* Hide columns: Price, Quantity, Shipping, Address, Offer */
+	/* HIDE SELECTED PURCHASE COLUMNS */
+
+	/* Email */
+	table th:nth-child(4),
+	table td:nth-child(4),
+
+	/* Brand Name */
+	table th:nth-child(7),
+	table td:nth-child(7),
+
+	/* Price */
+	table th:nth-child(8),
+	table td:nth-child(8) {
+	  display: none !important;
+	}
+ /* ===== DISABLE FILTER FUNCTIONALITY (CSS ONLY) ===== */
+
+  /* Keep button clickable */
+  .dropbtn {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  /* Completely disable dropdown & submenus */
+  .dropdown-content,
+  .sub-dropdown {
+    display: none !important;
+  }
+
+  /* Prevent hover from opening anything */
+  .custom-dropdown:hover .dropdown-content,
+  .dropdown-item.has-sub:hover .sub-dropdown {
+    display: none !important;
+  }
+
+
+  </style>
+  <!-- DETAILS MODAL -->
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Purchase Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="details-grid" id="detailsContent"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+  function showDetails(button) {
+    const row = button.closest("tr");
+    const cells = row.querySelectorAll("td");
+
+    const labels = [
+      "Supplier ID",
+      "Supplier Name",
+      "Contact No",
+      "Email",
+      "Product Name",
+      "Purchase Date",
+      "Brand Name",
+      "Price",
+      "Quantity"
+    ];
+
+    let html = "";
+    for (let i = 0; i < labels.length; i++) {
+      html += `
+        <div class="detail-box">
+          <span>${labels[i]}</span>
+          <p>${cells[i].innerText}</p>
+        </div>
+      `;
+    }
+
+    document.getElementById("detailsContent").innerHTML = html;
+    new bootstrap.Modal(document.getElementById("detailsModal")).show();
+  }
+  </script>
+
+  <style>
+
+ 
+
+  .main{
+      width:100%;
+      max-width:1150px;
+      margin:0 auto;
+      margin-top:50px;
+  }
+
+
+
+  .layout{
+      display:grid;
+      grid-template-columns: 340px 1fr;
+      gap: 30px;
+  }
+
+  .box{
+      border:1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px;
+      background: rgb(215, 215, 215);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+  }
+
+  .box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #e5e7eb;
+      transition: all 0.3s ease;
+  }
+
+  .box:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      border-color: rgb(255, 255, 255);
+  }
+
+  .box:hover::before {
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+  }
+
+  /* REPORT LIST */
+  .report-types h3,
+  .date-box h3,
+  .table-box h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .report-icon {
+      width: 20px;
+      height: 20px;
+      background: #3b82f6;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+  }
+
+  .report-types ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+  }
+
+  .report-types li{
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      cursor:pointer;
+      font-size: 14px;
+      color: rgb(0, 0, 64);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .report-types li::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+      transition: all 0.4s ease;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .report-types li:hover::before {
+      width: 300px;
+      height: 300px;
+  }
+
+  .report-types li:hover {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      color: #1e40af;
+      transform: translateX(6px);
+      border-color: #3b82f6;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.15);
+  }
+
+  .report-types li.active{
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      font-weight: 600;
+      border-color: #1d4ed8;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.3);
+  }
+
+  .report-types li.active::before {
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  }
+
+  /* DATE FORM */
+  .date-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-bottom:24px;
+  }
+
+  label{
+      font-size:18px;
+      font-weight:500;
+      display:block;
+      margin-bottom:8px;
+      color:rgb(0, 0, 64);
+  }
+
+  input[type="date"]{
+      width:100%;
+      padding:14px 16px;
+      border:2px solid #e5e7eb;
+      border-radius:12px;
+      font-size:16px;
+      font-family: 'Poppins', sans-serif;
+      background: #fafbfc;
+      color: #374151;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  input[type="date"]:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+      transform: translateY(-1px);
+  }
+
+  .generate-btn{
+      width:100%;
+      padding:16px 24px;
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color:#fff;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:600;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+  }
+
+  .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(59,130,246,0.4);
+  }
+
+  .generate-btn:active {
+      transform: translateY(0);
+  }
+
+  /* TABLE */
+  .table-box{
+      margin-top:28px;
+  }
+
+  table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      border-radius:12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
+
+  th,td{
+      padding:16px 20px;
+      text-align: left;
+      font-size:18px;
+  }
+
+  th{
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      font-weight:600;
+      color:#1e293b;
+      font-size:13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+  }
+
+  tbody tr {
+      transition: all 0.3s ease;
+      border-bottom: 1px solid #f1f5f9;
+  }
+
+  tbody tr:hover {
+      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+      transform: scale(1.01);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  .download{
+      background:linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color:#fff;
+      padding:10px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 20px rgba(16,185,129,0.3);
+  }
+
+  .download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(16,185,129,0.4);
+      color: #fff;
+  }
+
+  .download::after {
+      content: '↡';
+      font-size: 16px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+      .layout {
+          grid-template-columns: 1fr;
+          gap: 25px;
+      }
+      
+      .main {
+          margin-top: 30px;
+          padding: 0 20px;
+      }
+      
+      .card {
+          padding: 25px;
+      }
+  }
+
+  @media (max-width: 768px) {
+      .card h2 {
+          font-size: 1.8rem;
+      }
+      
+      .date-grid {
+          grid-template-columns: 1fr;
+      }
+  }
+  </style>
+</body>
+
+</html>
+
