@@ -1275,13 +1275,41 @@
   }
   </script>
   <script>
-  function assignDelivery(btn) {
-    const card = btn.closest('.discount-card');
-    const name = card.querySelector('.discount-name').innerText;
-    alert("Assigned delivery to: " + name);
+  function editDiscount(btn) {
+    const card = btn.closest(".discount-card");
+
+    const nameEl = card.querySelector(".discount-name");
+    const idEl = card.querySelector(".person-id");
+    const phoneEl = card.querySelector(".person-phone");
+
+    // ===== SAVE MODE =====
+    if (btn.dataset.mode === "edit") {
+      nameEl.innerText = nameEl.querySelector("input").value;
+      idEl.innerText = idEl.querySelector("input").value;
+      phoneEl.innerText = phoneEl.querySelector("input").value;
+
+      btn.innerText = "✏️ Edit";
+      btn.dataset.mode = "";
+      return;
+    }
+
+    // ===== EDIT MODE =====
+    nameEl.innerHTML = `<input type="text" value="${nameEl.innerText}" />`;
+    idEl.innerHTML = `<input type="text" value="${idEl.innerText}" />`;
+    phoneEl.innerHTML = `<input type="text" value="${phoneEl.innerText}" />`;
+
+    btn.innerText = "💾 Save";
+    btn.dataset.mode = "edit";
+  }
+
+  function deleteDiscount(btn) {
+    const card = btn.closest(".discount-card");
+
+    if (confirm("Are you sure you want to delete this record?")) {
+      card.remove();
+    }
   }
   </script>
-
 
 </body>
 

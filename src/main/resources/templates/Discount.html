@@ -293,7 +293,7 @@
 	      <div class="modal-content">
 
 	        <div class="modal-header">
-	          <h5 class="modal-title">Filter & Sort Orders</h5>
+	          <h5 class="modal-title">Filter & Sort</h5>
 	          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 	        </div>
 
@@ -1392,6 +1392,49 @@
 
     // Show modal
     new bootstrap.Modal(document.getElementById("detailsModal")).show();
+  }
+  </script>
+  <script>
+  function editDiscount(btn) {
+    const card = btn.closest('.discount-card');
+    const nameEl = card.querySelector('.discount-name');
+    const detailsEl = card.querySelector('.discount-details');
+    const valueEl = card.querySelector('.discount-value');
+
+    // SAVE MODE
+    if (btn.innerText.includes("Save")) {
+      nameEl.innerText = nameEl.querySelector('input').value;
+      detailsEl.innerText = detailsEl.querySelector('textarea').value;
+      if (valueEl) {
+        valueEl.innerText = valueEl.querySelector('input').value;
+      }
+
+      btn.innerHTML = "✏️ Edit";
+      btn.classList.remove("btn-success");
+      btn.classList.add("btn-edit");
+      return;
+    }
+
+    // EDIT MODE
+    nameEl.innerHTML = `<input type="text" value="${nameEl.innerText}" style="width:100%">`;
+    detailsEl.innerHTML = `<textarea style="width:100%; height:60px">${detailsEl.innerText}</textarea>`;
+
+    if (valueEl) {
+      valueEl.innerHTML = `<input type="text" value="${valueEl.innerText}" style="width:100%">`;
+    }
+
+    btn.innerHTML = "💾 Save";
+    btn.classList.remove("btn-edit");
+    btn.classList.add("btn-success");
+  }
+
+  function deleteDiscount(btn) {
+    const card = btn.closest('.discount-card');
+    const name = card.querySelector('.discount-name')?.innerText || "this discount";
+
+    if (confirm("Are you sure you want to delete " + name + "?")) {
+      card.remove(); // frontend delete
+    }
   }
   </script>
 

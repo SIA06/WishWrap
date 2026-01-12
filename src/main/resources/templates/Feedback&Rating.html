@@ -278,10 +278,8 @@
         <div class="container-fluid">
           <div class="row">
           <div class="col-sm-12 d-flex align-items-center justify-content-between">
-			  <h3 class="mb-0">Admin Product Management</h3>
-			  <a href="AddProduct.html" class="filter-btn1" style="text-decoration:none;">
-			      Add Product
-			  </a>
+			  <h3 class="mb-0">Admin Feedback & Rating Management</h3>
+			 
 			  <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#filterModal">
 			    <i class="bi bi-funnel-fill"></i> Filter
 			  </button>
@@ -304,7 +302,7 @@
 	            <div class="row g-3">
 
 	              <div class="col-md-6">
-	                <label class="form-label">Order Date</label>
+	                <label class="form-label">Rating Date</label>
 	                <div class="d-flex gap-2">
 	                  <input type="date" class="form-control">
 	                  <input type="date" class="form-control">
@@ -312,26 +310,56 @@
 	              </div>
 
 	             
+				  <div class="col-md-6">
+				  			              <label class="form-label">Select Category</label>
+				  			              <div class="d-flex gap-2">
+				  			                <select class="form-select" value="select">
+				  								<option value="" selected disabled hidden>Select Category</option>
+				  								<option value="ALL CATEGORIES">All Categories</option>
+				  			                  <option>Cards</option>
+				  							  <option value="Keychain">Keychain</option>
+				  							  								        <option>Mugs</option>
+				  							  								        <option >Showpiece</option>
+				  							  								        <option >Lamp</option>
+				  							  								        <option>Dream Catcher</option>
+				  							  								        <option>Soft Toy</option>
+				  							  								        <option >Windchime</option>
+				  							  								        <option >Diary</option>
+				  							  								        <option>Pen Diary Combo</option>
+				  							  								        <option>Parker Pen</option>
+				  							  								        <option>Musical Box</option>
+				  							  								        <option >Photo Frame</option>
+				  							  								        <option >Bracelet</option>
+				  							  								        <option >Locket</option>
+				  							  								        <option >Perfume</option>
+				  							  								        <option>Wallet</option>
+				  							  								        <option >Wallet Belt Combo</option>
+				  							  								        <option>Tie Cufflink Combo</option>
+				  							  								        <option>Clock</option>
+				  							  								        <option>Pen Stand</option>
+				  							  								        <option>Water Bottle</option>
+				  							  								        <option >Fridge Magnets</option>
+				  							  								        <option >Balloon</option>
+				  							  								        <option >Banners</option>
+				  							  								        <option >Rings</option>
+				  							  								        <option>Flower Pots</option>
+				  							  								        <option>Artificial Flower Plant</option>
+				  																	<option>None</option>
+				  			                </select>
+				  							
+				  			              </div>
+				  			            </div>
+	            
 
 	              <div class="col-md-6">
-	                <label class="form-label">Is-Customized</label>
-	                <select class="form-select"><option value="" selected disabled hidden>Select </option>
-	                  <option>Yes</option>
-	                  <option>No</option>
-	                 
-	              
-	                </select>
-	              </div>
-
-	              <div class="col-md-6">
-	                <label class="form-label">Sort</label><option value="" selected disabled hidden></option>
+	                <label class="form-label">Sort</label>
 	                <div class="d-flex gap-2">
 	                  <select class="form-select">
-	                    <option>Quantity</option>
-	                    <option>Price</option>
+	                    <option>None</option>  <option value="" selected disabled hidden>Select </option>
+	                  
 	                    <option>Date</option>
 	                  </select>
-	                  <select class="form-select"><option value="" selected disabled hidden>Select ordering</option>
+	                  <select class="form-select"> <option value="" selected disabled hidden>Select ordering</option>
 	                    <option>Ascending</option>
 	                    <option>Descending</option>
 	                  </select>
@@ -354,13 +382,13 @@
       <!-- App Content -->
       <div class="main">
         <div class="section">
-          <h3>Product Details</h3>
+          <h3>Feedback & Rating  Details</h3>
 		 
 
 			<div class="toolbar" style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
 			  <!-- Search bar on the left -->
 			  <div class="toolbar-left">
-			    					                   <input type="text" placeholder="Search Product...">
+			    					                   <input type="text" placeholder="Search ...">
 			    					                   <button class="btn-add">Search</button>
 			    					               </div>
 			
@@ -375,13 +403,17 @@
 		  <table>
 		              <thead>
 		                  <tr>
-							<th style="width:10%;">product_id</th>
-							                    <th style="width:40%;">product_name</th>
-							                    <th style="width:20%;">description</th>
-							                    <th style="width:30%;">price</th>
-												<th style="width:40%;">stock</th>
-												<th style="width:20%;">isCustomized</th>
-												<th style="width:20%;">Action</th>
+							<th style="width:10%;">feedback_id</th>
+							<th style="width:20%;">description</th>
+							                    <th style="width:40%;">user_id</th>
+												<th style="width:40%;">name</th>
+												<th style="width:40%;">product_id</th>
+												<th style="width:40%;">product_name</th>
+							          
+							                    <th style="width:30%;">rating</th>
+												<th style="width:40%;">ratingDate</th>
+												<th style="width:40%;">Action</th>
+												
 		                  </tr>
 		              </thead>
 		              <tbody>
@@ -394,10 +426,11 @@
 								<td></td>
 								<td></td>
 								<td></td>
+								<td></td>
+								<td></td>
 								<td>
 								<div class="action-buttons">
-									<a href="javascript:void(0)" class="btn btn-edit" onclick="editRow(this)">Edit</a>
-									   <a href="javascript:void(0)" class="btn btn-delete" onclick="deleteRow(this)">Delete</a>
+									
 								 <div style="display:flex; gap:6px; justify-content:center;">
 
 								 			        <!-- Export -->
@@ -436,6 +469,16 @@
       </strong> All rights reserved.
     </footer>
   </div>
+  <script>
+  function deleteRow(btn) {
+    if (!confirm("Are you sure you want to delete this record?")) {
+      return;
+    }
+
+    const row = btn.closest("tr");
+    row.remove();
+  }
+  </script>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
@@ -650,7 +693,7 @@
 		  font-size: 20px;
 		  font-weight: 600;
 		  text-align: center;
-		  text-transform: lowercase;   /* ✅ THIS MAKES SMALL LETTERS */
+		  /* ✅ THIS MAKES SMALL LETTERS */
 		  border: 1px solid #6b7280;
 		}
 
@@ -1118,17 +1161,17 @@
   }
 
   /* Hide columns: Price, Quantity, Shipping, Address, Offer */
-  	table th:nth-child(1),
-  	table td:nth-child(1),
+  	table th:nth-child(3),
+  	table td:nth-child(3),
 
   	table th:nth-child(5),
   	table td:nth-child(5),
+	
+	table th:nth-child(8),
+	table td:nth-child(8),
 
-  	table th:nth-child(6),
-  	table td:nth-child(6),
 
-  	table th:nth-child(9),
-  	table td:nth-child(9), {
+ {
   	  display: none !important;
   	} 
   </style>
@@ -1138,7 +1181,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title">Product Details</h5>
+          <h5 class="modal-title">Feedback & Rating Details</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
@@ -1149,18 +1192,22 @@
       </div>
     </div>
   </div>
+ 
   <script>
   function showDetails(button) {
     const row = button.closest("tr");
     const cells = row.querySelectorAll("td");
 
     const labels = [
-      " ID",
+      " feedback ID",
+	  "description",
+	  "user_id",
+	  "user-name",
+	  "product-id",
       "Product Name",
-      "Description",
-	  " Price",
-	  " Stock",
-	  " Is_Customized",
+      "rating",
+	  " rating date",
+	
    
     ];
 
@@ -1183,7 +1230,7 @@
     const row = btn.closest("tr");
     const cells = row.querySelectorAll("td");
 
-    // SAVE MODE
+    // If already in edit mode → SAVE
     if (btn.innerText === "Save") {
       for (let i = 0; i < cells.length - 1; i++) {
         const input = cells[i].querySelector("input");
@@ -1207,15 +1254,27 @@
     btn.classList.remove("btn-edit");
     btn.classList.add("btn-success");
   }
-
-  function deleteRow(btn) {
-    if (!confirm("Are you sure you want to delete this row?")) return;
-
-    const row = btn.closest("tr");
-    row.remove();
-  }
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
 
+    // column indexes to HIDE (0-based)
+    const hideCols = [2,4,7]; 
+    // description, price, qty, cdate, imageId, image
+
+    const table = document.querySelector("table");
+    if (!table) return;
+
+    table.querySelectorAll("tr").forEach(row => {
+      hideCols.forEach(index => {
+        if (row.children[index]) {
+          row.children[index].style.display = "none";
+        }
+      });
+    });
+
+  });
+  </script>  
 </body>
 
 </html>
