@@ -167,33 +167,40 @@
         
         <form th:action="@{/signup}" th:object="${user}" method="post">
 
-    <div class="input-box">
-        <input type="text" th:field="*{name}" placeholder="Full Name">
-    </div>
+			<div class="input-box">
+			          <input type="text" th:field="*{name}" placeholder="Full Name">
+			          <i>👤</i>
+			      </div>
 
-    <div class="input-box">
-        <input type="email" th:field="*{email}" placeholder="Email Address">
-    </div>
+			      <div class="input-box">
+			          <input type="email" th:field="*{email}" placeholder="Email Address">
+			          <i>📧</i>
+			      </div>
 
-    <div class="input-box">
-        <input type="text" th:field="*{user_name}" placeholder="Username">
-    </div>
+			      <div class="input-box">
+			          <input type="text" th:field="*{username}" placeholder="Username">
+			          <i>🧑‍💻</i>
+			      </div>
 
-    <div class="input-box">
-        <input type="password" th:field="*{password}" placeholder="Password">
-    </div>
+			      <div class="input-box">
+			          <input type="password" th:field="*{password}" placeholder="Password">
+			          <i>🔒</i>
+			      </div>
 
-    <div class="input-box">
-        <input type="tel" th:field="*{phoneNo}" placeholder="Phone Number">
-    </div>
+			      <div class="input-box">
+			          <input type="tel" th:field="*{phone}" placeholder="Phone Number">
+			          <i>📞</i>
+			      </div>
 
-    <div class="input-box">
-        <input type="text" th:field="*{seqQue}" placeholder="Security Question">
-    </div>
+			      <div class="input-box">
+			          <input type="text" th:field="*{securityQuestion}" placeholder="Security Question">
+			          <i>❓</i>
+			      </div>
 
-    <div class="input-box">
-        <input type="text" th:field="*{seqAns}" placeholder="Answer">
-    </div>
+			      <div class="input-box">
+			          <input type="text" th:field="*{securityAnswer}" placeholder="Answer">
+			          <i>💡</i>
+			      </div>
 
     <button type="submit">Sign Up</button>
 </form>

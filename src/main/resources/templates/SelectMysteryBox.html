@@ -1,0 +1,2028 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WishWrap | Dashboard</title>
+
+  <!-- Accessibility Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="color-scheme" content="light zz" />
+  <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="WishWrap | Dashboard" />
+  <meta name="author" content="ColorlibHQ" />
+  <meta name="description"
+    content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance." />
+  <meta name="keywords"
+    content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant" />
+
+  <!-- Accessibility Features -->
+  <meta name="supported-color-schemes" content="light dark" />
+  <link rel="preload" href="/adminlte/dist/css/adminlte.css" as="style" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+    integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+    crossorigin="anonymous" media="print" onload="this.media = 'all'" />
+
+  <!-- Third Party Plugins -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    crossorigin="anonymous" />
+
+  <!-- Required Plugins -->
+  <link rel="stylesheet" href="/adminlte/dist/css/adminlte.css" />
+
+  <!-- Charts -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+    integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+    crossorigin="anonymous" />
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+    integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+    crossorigin="anonymous" />
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <!--begin::App Wrapper-->
+  <div class="app-wrapper">
+    <!-- Header -->
+    <nav class="app-header navbar navbar-expand bg-body">
+      <div class="container-fluid">
+        <!-- Start Navbar Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+              <i class="bi bi-list"></i>
+            </a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item d-none d-md-block">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+        <!-- End Navbar Links -->
+        <ul class="navbar-nav ms-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <form class="d-flex align-items-center" role="search">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input type="search" class="form-control border-start-0"
+                  placeholder="Search products, orders, customers..." aria-label="Search">
+              </div>
+            </form>
+          </li>
+
+          <!-- Messages Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <i class="bi bi-chat-text"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <a href="#" class="dropdown-item"></a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+            </div>
+          </li>
+
+          <!-- Notifications Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-bs-toggle="dropdown" href="#">
+              <i class="bi bi-bell-fill"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            </div>
+          </li>
+
+          <!-- Fullscreen Toggle -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+              <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+              <i data-lte-icon="minimize" class="bi bi-fullscreen-exit" style="display: none"></i>
+            </a>
+          </li>
+
+          <!-- User Menu -->
+          <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="nav-icon bi bi-person-circle"></i>
+              <span class="d-none d-md-inline">profile</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+              <li class="user-footer">
+                <a href="#" class="btn btn-outline-secondary" th:href="@{/profile}">Profile Settings</a>
+                <a href="#" class="btn btn-outline-danger float-end" th:href="@{/logout}">Sign out</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+      <div class="sidebar-brand">
+        <a href="/admin" class="brand-link">
+          <img th:src="@{/images/logo.jpeg}"
+               class="brand-image opacity-75 shadow"
+               style="width:50px; height: 150px;" />
+          <span class="brand-text fw-light"><h2><b>WishWrap</b></h2></span>
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <nav class="mt-2">
+          <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"
+            aria-label="Main navigation" data-accordion="false" id="navigation">
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon bi bi-speedometer"></i>
+                <p>Dashboard<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/products}" class="nav-link">
+                <i class="nav-icon bi bi-box-seam-fill"></i>
+                <p>Products</p>
+              </a>
+            </li>
+			<li class="nav-item">
+			             <a href="#" class="nav-link">
+			               <i class="nav-icon bi bi-receipt"></i>
+			               <p>Purchase<i class="nav-arrow bi bi-chevron-right"></i></p>
+			             </a>
+					  <ul class="nav nav-treeview">
+					                  <li class="nav-item">
+					                    <a th:href="@{/admin/customers/cart}" class="nav-link">
+					                      <i class="nav-icon bi bi-circle"></i>
+					                      <p>Purchase Details</p>
+					                    </a>
+					                  </li>
+					                  <li class="nav-item">
+					                    <a th:href="@{/admin/customers/wishlist}" class="nav-link">
+					                      <i class="nav-icon bi bi-circle"></i>
+					                      <p>Purchase Return Details</p>
+					                    </a>
+					                  </li>
+					                </ul>
+			           </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-receipt"></i>
+                <p>Orders<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+			  <ul class="nav nav-treeview">
+			                  <li class="nav-item">
+			                    <a th:href="@{/admin/customers/cart}" class="nav-link">
+			                      <i class="nav-icon bi bi-circle"></i>
+			                      <p>Orders Details</p>
+			                    </a>
+			                  </li>
+			                  <li class="nav-item">
+			                    <a th:href="@{/admin/customers/wishlist}" class="nav-link">
+			                      <i class="nav-icon bi bi-circle"></i>
+			                      <p>Order Return Details</p>
+			                    </a>
+			                  </li>
+			                </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-person"></i>
+                <p>Customers<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a th:href="@{/admin/customers/cart}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Cart</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a th:href="@{/admin/customers/wishlist}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Wishlist</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/customization}" class="nav-link">
+                <i class="nav-icon bi bi-sliders"></i>
+                <p>Customization</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/mystery-box}" class="nav-link">
+                <i class="nav-icon bi bi-box2-heart"></i>
+                <p>Mystery-Box</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/discounts}" class="nav-link">
+                <i class="nav-icon bi bi-percent"></i>
+                <p>Discounts</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-grid"></i>
+                <p>Categories<i class="nav-arrow bi bi-chevron-right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a th:href="@{/admin/categories/subcategories}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Sub-Categories</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a th:href="@{/admin/categories/brand}" class="nav-link">
+                    <i class="nav-icon bi bi-circle"></i>
+                    <p>Brand</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a th:href="@{/admin/reports}" class="nav-link">
+                <i class="nav-icon bi bi-bar-chart"></i>
+                <p>Reports</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- App Main -->
+    <main class="app-main">
+      <!-- App Content Header -->
+      <div class="app-content-header">
+        <div class="container-fluid">
+          <div class="row">
+          <div class="col-sm-12 d-flex align-items-center justify-content-between">
+			  <h3 class="mb-0">Admin Delivery-Person Management</h3>
+
+			  
+			</div>
+
+						  
+          </div>
+        </div>
+      </div>
+	  <div class="modal fade" id="filterModal" tabindex="-1">
+	    <div class="modal-dialog modal-lg modal-dialog-centered">
+	      <div class="modal-content">
+
+	        	            </div>
+
+	          </div>
+	        </div>
+		
+
+
+      <!-- App Content -->
+   
+
+		  <div class="main">
+		    <div class="section">
+		      <h3>Delivery-Person Details</h3>
+
+		      <div class="toolbar" style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
+		        <!-- Search bar on the left -->
+		        <div class="toolbar-left">
+		          <input type="text" id="searchInput" placeholder="Search Delivery-Person...">
+		          <button class="btn-add" onclick="applyFilters()">Search</button>
+		        </div>
+		      </div>
+
+			
+
+			  <div class="main-content">
+			      <!-- Main Panel - No Sidebar -->
+			      <div class="main-panel">
+			         
+
+					<div class="main-panel">
+						<h3 style="margin-bottom:10px;">Selected Products</h3>
+						<div id="selected-products" style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:30px;">
+						  <p id="empty-msg">No products selected</p>
+						</div>
+
+						<hr>
+
+					  <div class="product-grid">
+
+					    <!-- Product Card -->
+					    <div class="product-card">
+							<img th:src="@{/images/i1.jpeg}" class="product-img" alt="Product">
+
+
+					      <h4 class="product-name">Clips</h4>
+					      <p class="product-brand">Brand: Notwise</p>
+					      <p class="product-qty">Quantity: 10</p>
+					      <p class="product-price">₹499</p>
+                          <button class="add-btn">➕ Add</button>
+					    </div>
+
+					    <!-- Product Card -->
+					    <div class="product-card">
+					      <img src="/images/i2.jpeg" class="product-img" alt="Product">
+
+					      <h4 class="product-name">cute box</h4>
+					      <p class="product-brand">Brand: Notwise</p>
+					      <p class="product-price">₹299</p>
+                          <button class="add-btn">➕ Add</button>
+					    </div>
+						<div class="product-card">
+						<img th:src="@{/images/i3.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">small bottle</h4>
+						<p class="product-brand">Brand:Giftoria</p>
+						
+						<p class="product-price">₹200</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i4.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">Panda Mug</h4>
+						<p class="product-brand">Brand: GlowCraft</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹120</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i5.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">Diary</h4>
+						<p class="product-brand">Brand: Notwise</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹240</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i6.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">Panda toy</h4>
+						<p class="product-brand">Brand:GlowCraft</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹150</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i7.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">teady bear set of two</h4>
+						<p class="product-brand">Brand:Mudzy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹800</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i8.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">heros</h4>
+						<p class="product-brand">Brand: Mudzy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹430</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i9.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">evil eye hanger</h4>
+						<p class="product-brand">Brand: Mudzy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹200</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i10.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">cute small camera</h4>
+						<p class="product-brand">Brand: Mudzy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹800</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i11.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">set of two small kitten</h4>
+						<p class="product-brand">Brand: Mudzy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i11.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">teady bear set of two</h4>
+						<p class="product-brand">Brand: DecoNest</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹240</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i12.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">6 heros</h4>
+						<p class="product-brand">Brand: DecoNest</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹360</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i13.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">blue panda</h4>
+						<p class="product-brand">Brand: Notwise</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i14.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden light</h4>
+						<p class="product-brand">Brand: Notwise</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹580</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i15.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 small diary</h4>
+						<p class="product-brand">Brand: DecoNest</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹900</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i16.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">set of gift boxes</h4>
+						<p class="product-brand">Brand:DecoNest</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹340</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i17.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">london eye</h4>
+						<p class="product-brand">Brand: DreamAura</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i18.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden ball1</h4>
+						<p class="product-brand">Brand: DreamAura</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹120</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i19.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden ball2</h4>
+						<p class="product-brand">Brand: DreamAura</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹239</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i20.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden ball3</h4>
+						<p class="product-brand">Brand:GPlushJoy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i21.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden ball4</h4>
+						<p class="product-brand">Brand: PlushJoy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹399</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i22.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden ball5</h4>
+						<p class="product-brand">Brand: Scentique</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹199</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i23.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">golden ball6</h4>
+						<p class="product-brand">Brand:Scentique</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹496</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i24.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple show piece</h4>
+						<p class="product-brand">Brand: Scentique</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹449</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i25.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">heart couple show piece</h4>
+						<p class="product-brand">Brand: Melody Box</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹99</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i26.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">square couple show piece</h4>
+						<p class="product-brand">Brand:Melody Box</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i27.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">oval couple show piece</h4>
+						<p class="product-brand">Brand: PlushJoy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹270</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i28.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">small 3 flower jar</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹670</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i29.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 light comb</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹780</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i30.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">heart flower</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹230</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i31.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">Pheart ballon show piece</h4>
+						<p class="product-brand">Brand: Notwise</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i32.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 light teady</h4>
+						<p class="product-brand">Brand: Notwise</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹300</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i33.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 light bottle</h4>
+						<p class="product-brand">Brand: Notwise</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹340</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i34.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">heart light jar</h4>
+						<p class="product-brand">Brand: WriteElite</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹130</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i35.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">blue man</h4>
+						<p class="product-brand">Brand: WriteElite</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i36.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 light oval jar</h4>
+						<p class="product-brand">Brand: Melody Box</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹900</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i37.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">red man</h4>
+						<p class="product-brand">Brand: Melody Box</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹299</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i38.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">white-blue man</h4>
+						<p class="product-brand">Brand:WriteElite</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹399</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i39.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 light rabbit</h4>
+						<p class="product-brand">Brand: Melody Box</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹599</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i40.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">yellow man</h4>
+						<p class="product-brand">Brand: Melody Box</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹670</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i41.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">white man</h4>
+						<p class="product-brand">Brand:FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹907</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i42.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">black-hair man</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹120</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i43.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 yellow jar</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹349</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i44.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">yellow man</h4>
+						<p class="product-brand">Brand: Giftify</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i45.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 budhha</h4>
+						<p class="product-brand">Brand: Giftify</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹799</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i46.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 capped mug</h4>
+						<p class="product-brand">Brand: Giftify</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹345</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i47.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">3 budhha</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹450</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i48.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">white alarm</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹780</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i49.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 white mug</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹99</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i50.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">yellow alarm</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹150</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i51.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">glass jar panda</h4>
+						<p class="product-brand">Brand:Jewellet</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹170</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i52.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 coloured glass</h4>
+						<p class="product-brand">Brand: Jewellet</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹340</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i53.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 yellow budhha</h4>
+						<p class="product-brand">Brand:Jewellet</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i54.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">4 udhha</h4>
+						<p class="product-brand">Brand: Scentique</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹400</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i55.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 1</h4>
+						<p class="product-brand">Brand: KeyNCharm</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹180</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i56.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 2</h4>
+						<p class="product-brand">Brand: KeyNCharm</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹200</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i57.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">clock</h4>
+						<p class="product-brand">Brand:Scentique</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i58.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">small alarms</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹399</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i59.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 3</h4>
+						<p class="product-brand">Brand: KeyNCharm</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i60.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 4</h4>
+						<p class="product-brand">Brand: GKeyNCharm</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹908</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i61.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 5</h4>
+						<p class="product-brand">Brand:KeyNCharm</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹340</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i62.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 6</h4>
+						<p class="product-brand">Brand: KeyNCharm</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹670</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i63.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 7</h4>
+						<p class="product-brand">Brand: Scentique</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i64.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 8</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i65.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 9</h4>
+						<p class="product-brand">Brand: UrbanCarry</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹130</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i66.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 10</h4>
+						<p class="product-brand">Brand: UrbanCarry</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹749</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i67.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 12</h4>
+						<p class="product-brand">Brand: UrbanCarry</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹689</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i68.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 13</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹450</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i69.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">bracelet 1</h4>
+						<p class="product-brand">Brand: SuiteUp</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹150</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i70.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">bracelet 2</h4>
+						<p class="product-brand">Brand: SuiteUp</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i71.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">bracelet 3</h4>
+						<p class="product-brand">Brand: SuiteUp</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹329</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i72.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 14</h4>
+						<p class="product-brand">Brand: AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i73.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">2 combo show piece</h4>
+						<p class="product-brand">Brand: AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹120</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i74.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">card hanger1</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹560</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i75.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">card hanger 2</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹240</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i76.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">card hanger 3</h4>
+						<p class="product-brand">Brand: AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹450</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i77.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">2 hear and square show piece</h4>
+						<p class="product-brand">Brand: AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹780</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i78.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">2 ovel show piece</h4>
+						<p class="product-brand">Brand: FrameIT</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i79.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">3 differnt shape show piece</h4>
+						<p class="product-brand">Brand: PartyPop</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i80.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">2 monn show piece</h4>
+						<p class="product-brand">Brand: PartyPop</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹299</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i81.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 15</h4>
+						<p class="product-brand">Brand: PartyPop</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹670</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i82.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">couple bracelet 16</h4>
+						<p class="product-brand">Brand: Bloomigy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹980</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i83.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">heart and squarePhoto Frame</h4>
+						<p class="product-brand">Brand: Bloomigy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹120</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i84.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name"></h4>3 set of gift box</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i85.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">2 brown jar</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i86.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 1</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹450</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i87.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">set of gift box</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹780</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i88.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">pink set of gift box</h4>
+						<p class="product-brand">Brand: FeatherHome</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i89.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">gray oval box</h4>
+						<p class="product-brand">Brand: Bloomigy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹100</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i90.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 2</h4>
+						<p class="product-brand">Brand: AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹560</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i91.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 3</h4>
+						<p class="product-brand">Brand:AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i92.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 4</h4>
+						<p class="product-brand">Brand: Bloomigy</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹340</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i93.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 5</h4>
+						<p class="product-brand">Brand: WriteElite</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹560</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i94.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 6</h4>
+						<p class="product-brand">Brand: AquaSip</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹500</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						<div class="product-card">
+						<img th:src="@{/images/i96.jpeg}" class="product-img" alt="Product">
+
+
+						<h4 class="product-name">stick 7</h4>
+						<p class="product-brand">Brand: WriteElite</p>
+						<p class="product-qty">Quantity: 10</p>
+						<p class="product-price">₹499</p>
+						<button class="add-btn">➕ Add</button>
+						</div>
+						
+
+					  </div>
+					</div>
+
+					<div style="text-align:center; margin:40px 0;">
+					  <a href="javascript:void(0)" id="confirm-btn" class="btn btn-success btn-lg">
+					    ✅ Confirm Selection
+					  </a>
+					</div>
+		
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="float-end d-none d-sm-inline">Anything you want</div>
+      <strong>Copyright <i class="bi bi-c-circle"></i>
+        <a href="https://adminlte.io" class="text-decoration-none">WishWrap</a>.
+      </strong> All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="/adminlte/dist/js/adminlte.js"></script>
+
+  <!-- OverlayScrollbars Config -->
+  <script>
+    const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+    const Default = {
+      scrollbarTheme: 'os-theme-light',
+      scrollbarAutoHide: 'leave',
+      scrollbarClickScroll: true,
+    };
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+      const isMobile = window.innerWidth <= 992;
+      if (sidebarWrapper && OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+        OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+          scrollbars: {
+            theme: Default.scrollbarTheme,
+            autoHide: Default.scrollbarAutoHide,
+            clickScroll: Default.scrollbarClickScroll,
+          },
+        });
+      }
+    });
+  </script>
+
+  <script>
+  let currentFilter = { type: "", value: "" };
+
+  function selectFilter(type, value) {
+    currentFilter = { type, value };
+    document.querySelector('.dropbtn').textContent = type + " → " + value;
+  }
+
+  function applyFilters() {
+    const search = document.getElementById("searchInput").value.toLowerCase();
+    const type = currentFilter.type.toLowerCase();
+    const value = currentFilter.value.toLowerCase();
+    const rows = document.querySelectorAll("table tbody tr");
+
+    rows.forEach(row => {
+      const cells = row.cells;
+      const userName = cells[0].innerText.toLowerCase();
+      const priceVal = parseFloat(cells[2].innerText);
+      const paymentMethod = cells[6].innerText.toLowerCase();
+      const genderVal = cells[9] ? cells[9].innerText.toLowerCase() : "";
+      const colorVal = cells[10] ? cells[10].innerText.toLowerCase() : "";
+      const sizeVal = cells[11] ? cells[11].innerText.toLowerCase() : "";
+      const brandVal = cells[12] ? cells[12].innerText.toLowerCase() : "";
+      const typeVal = cells[13] ? cells[13].innerText.toLowerCase() : "";
+
+      let show = true;
+
+      if(type === "payment" && value && !paymentMethod.includes(value)) show = false;
+      if(type === "price" && value){
+        const [min,max] = value.split("-").map(Number);
+        if(priceVal < min || priceVal > max) show = false;
+      }
+      if(type === "gender" && value && !genderVal.includes(value)) show = false;
+      if(type === "color" && value && !colorVal.includes(value)) show = false;
+      if(type === "size" && value && !sizeVal.includes(value)) show = false;
+      if(type === "brand" && value && !brandVal.includes(value)) show = false;
+      if(type === "type" && value && !typeVal.includes(value)) show = false;
+
+      if(search && !userName.includes(search)) show = false;
+
+      row.style.display = show ? "" : "none";
+    });
+  }
+  
+  </script>
+  <script>
+  function exportDiscount(type) {
+    alert("Export Discount as " + type.toUpperCase());
+  }
+
+  function showDiscountDetails(btn) {
+    const card = btn.closest('.discount-card');
+    alert("Show discount details modal here");
+  }
+  </script>
+
+
+  <!-- Styles -->
+  <style>
+    /* ================= GLOBAL FONT ================= */
+    body,
+    .app-wrapper,
+    .app-header,
+    .app-sidebar,
+    .card,
+    .form-control {
+      font-family: "Baskerville Old Face", serif;
+      font-weight: bold;
+    }
+
+    /* ================= BACKGROUNDS ================= */
+    .full-width-container {
+      display: flex;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      padding: 2rem 0;
+      background: linear-gradient(to bottom, #87cefa, #b3d9c3);
+    }
+
+    .app-main {
+      background: linear-gradient(to bottom, #b3d9c3, #87cefa);
+    }
+
+    /* ================= SIDEBAR ================= */
+    .app-sidebar,
+    .app-sidebar .sidebar-brand {
+      background-color: rgb(95, 158, 160) !important;
+    }	  .product-qty {
+	      display: none;
+	  }
+
+
+    .app-sidebar,
+    .app-sidebar * ,
+    .app-sidebar .nav-link,
+    .app-sidebar .nav-icon,
+    .app-sidebar i {
+      color: #000000 !important;
+    }
+
+    .app-sidebar .nav-link:hover,
+    .app-sidebar .nav-link.active {
+      background-color: rgb(95, 158, 160) !important;
+      color: #000000 !important;
+    }	  .custom-dropdown {
+	    position: relative;
+	    display: inline-block;
+	  }
+
+	  .dropbtn {
+	    padding: 8px 12px;
+	    font-size: 14px;
+	    cursor: pointer;
+	    border-radius: 6px;
+	    border: 1px solid #ccc;
+	    background: #ffffff;
+	  }
+
+	  .dropdown-content {
+	    display: none;
+	    position: absolute;
+	    background-color: #fff;
+	    min-width: 180px;
+	    border: 1px solid #ccc;
+	    z-index: 1000;
+	  }
+
+	  .custom-dropdown:hover .dropdown-content {
+	    display: block;
+	  }
+
+	  .dropdown-item {
+	    padding: 8px 12px;
+	    cursor: pointer;
+	    position: relative;
+	  }
+
+	  .dropdown-item:hover {
+	    background: #f0f0f0;
+	  }	/* ===== PRODUCT GRID ===== */
+	.product-grid {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	  gap: 25px;
+	}
+
+	/* ===== PRODUCT CARD ===== */
+	.product-card {
+	  background: #ffffff;
+	  border-radius: 18px;
+	  padding: 20px;
+	  text-align: center;
+	  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+	  transition: 0.3s ease;
+	}
+
+	.product-card:hover {
+	  transform: translateY(-5px);
+	  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+	}
+
+	/* IMAGE */
+	.product-img {
+	  width: 100%;
+	  height: 180px;
+	  object-fit: cover;
+	  border-radius: 14px;
+	  margin-bottom: 15px;
+	}
+
+	/* TEXT */
+	.product-name {
+	  font-size: 18px;
+	  font-weight: 700;
+	  color: #1e293b;
+	}
+
+	.product-brand,
+	.product-qty {
+	  font-size: 20px;
+	  color: #475569;
+	  margin: 4px 0;
+	}
+
+	.product-price {
+	  font-size: 20px;
+	  font-weight: 700;
+	  color: #16a34a;
+	  margin: 8px 0;
+	}
+
+	/* ADD BUTTON */
+	.add-btn {
+	  width: 100%;
+	  padding: 12px;
+	  border: none;
+	  border-radius: 12px;
+	  background: linear-gradient(135deg, #6366f1, #4f46e5);
+	  color: #ffffff;
+	  font-size: 16px;
+	  font-weight: 600;
+	  cursor: pointer;
+	}
+
+	.add-btn:hover {
+	  background: linear-gradient(135deg, #4f46e5, #4338ca);
+	}
+
+
+
+    .brand-image {
+      opacity: 0.8;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background-color: transparent !important;
+    }
+
+	
+	/* ================= LAYOUT ================= */
+	.main {
+	  width: 100%;
+	  max-width: 1100px;
+	  margin-top: 40px;
+	}
+
+	.section {
+	  padding: 25px;
+	}
+
+	.section + .section {
+	  margin-top: 30px;
+	  border-top: 2px solid #e5e7eb;
+	}
+
+	/* ================= TOOLBAR ================= */
+	.toolbar {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  margin-bottom: 15px;
+	}
+
+	.toolbar-left {
+	  display: flex;
+	  gap: 10px;
+	}
+
+	.toolbar input {
+	  padding: 8px 12px;
+	  border-radius: 6px;
+	  border: 1px solid #cbd5e1;
+	  width: 220px;
+	}
+
+	.btn-add {
+	  padding: 8px 16px;
+	  background: #6366f1;
+	  color: #ffffff;
+	  border: none;
+	  border-radius: 6px;
+	  cursor: pointer;
+	  font-size: 14px;
+	}
+
+	.btn-add:hover {
+	  background: #4f46e5;
+	}
+	/* ---------- Filter Button ---------- */
+	.dropbtn {
+	  padding: 2px 10px;          /* Adjust padding */
+	  font-size: 20px;             /* Adjust font size */
+	  font-weight: 600;
+	  cursor: pointer;
+	  border-radius: 8px;          /* Rounded corners */
+	  border: 1px solid rgb(128, 128, 128);  /* Border color */
+	  background-color: rgb(192, 192, 192);   /* Button color */
+	  color: rgb(0, 0, 0);              /* Text color */
+	  transition: all 0.3s ease;
+	}
+	
+
+	/* Hover effect */
+	
+
+
+	/* ===== OPTION 1: SHOW FEW COLUMNS ONLY (CSS ONLY) ===== */
+	/* Change column numbers if needed */
+
+	/* Hide columns: Price, Quantity, Shipping, Address, Offer */
+	/* HIDE SELECTED PURCHASE COLUMNS */
+
+	/* Example: hide Return Amount (6th column) and Reason (7th column) */
+	/* Example: hide Email and Return Amount */
+	/* Example: hide Email and Return Amount */
+	table th:nth-child(4),
+	table td:nth-child(4),
+	table th:nth-child(8),
+	table td:nth-child(8) {
+	  display: none !important;
+	}
+
+
+
+ /* ===== DISABLE FILTER FUNCTIONALITY (CSS ONLY) ===== */
+
+  /* Keep button clickable */
+  .dropbtn {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  /* Completely disable dropdown & submenus */
+  .dropdown-content,
+  .sub-dropdown {
+    display: none !important;
+  }
+
+  /* Prevent hover from opening anything */
+  .custom-dropdown:hover .dropdown-content,
+  .dropdown-item.has-sub:hover .sub-dropdown {
+    display: none !important;
+  }
+
+
+  </style>
+  <style>
+  * {
+      box-sizing: border-box;
+  }
+
+  body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+       background: linear-gradient(to bottom, #87cefa, #b3d9c3);
+  }
+
+
+
+  .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .logo {
+      font-size: 24px;
+      font-weight: 700;
+  }
+
+  .page-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0;
+  }
+
+  .main-content {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+  }
+
+  .main-panel {
+      background: rgb(232, 232, 232);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      padding: 40px;
+      border: 1px solid #e5e7eb;
+  }
+
+  .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      padding-bottom: 25px;
+      border-bottom: 3px solid #f1f5f9;
+  }
+
+  .panel-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+  }
+
+  .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+  }
+
+  .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16,185,129,0.4);
+  }
+
+  .discount-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 25px;
+  }
+
+  .discount-card {
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+
+  .discount-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 15px 40px rgba(59,130,246,0.15);
+      transform: translateY(-4px);
+  }
+
+  .discount-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+  }
+
+  .discount-badge {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+  }
+
+  .discount-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0 0 10px 0;
+  }
+
+  .discount-details {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+  }
+
+  .discount-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #10b981;
+      margin: 15px 0;
+  }
+
+  .card-actions {
+      display: flex;
+      gap: 12px;
+  }
+
+  .btn-small {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+      justify-content: center;
+  }
+
+  .btn-edit {
+      background: #3b82f6;
+      color: white;
+  }
+
+  .btn-delete {
+      background: #ef4444;
+      color: white;
+  }
+
+  .btn-small:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+      .header-content {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+      }
+      
+      .main-panel {
+          padding: 25px 20px;
+          margin: 20px 10px;
+      }
+      
+      .discount-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+      }
+      
+      .panel-title {
+          font-size: 22px;
+      }
+  }
+  </style>
+  <!-- DETAILS MODAL -->
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Discount Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="details-grid" id="detailsContent"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+ 
+
+  function deleteDiscount(btn) {
+    const card = btn.closest('.discount-card');
+    const name = card.querySelector('.discount-name').innerText;
+
+    if (confirm("Are you sure you want to delete " + name + "?")) {
+      card.remove(); // frontend delete
+    }
+  }
+  </script>
+  <script>
+  function showDiscountDetails(btn) {
+
+    const card = btn.closest('.discount-card');
+
+    // Extract data from card
+    const name = card.querySelector('.discount-name')?.innerText || "N/A";
+    const details = card.querySelector('.discount-details')?.innerText || "N/A";
+    const value = card.querySelector('.discount-value')?.innerText || "N/A";
+
+    // Optional: detect dates / category from text
+ 
+    let category = "Not specified";
+
+ 
+
+    if (details.includes("\n")) {
+      category = details.split("\n")[1];
+    }
+
+    // Build detail boxes
+    const html = `
+      <div class="detail-box">
+        <span>Offer Name</span>
+        <p>${name}</p>
+      </div>
+
+    
+  
+      <div class="detail-box">
+        <span>phone_no</span>
+        <p>${category}</p>
+      </div>
+    `;
+
+    // Inject content
+    document.getElementById("detailsContent").innerHTML = html;
+
+    // Show modal
+    new bootstrap.Modal(document.getElementById("detailsModal")).show();
+  }
+  </script>
+  <script>
+  function assignDelivery(btn) {
+    const card = btn.closest('.discount-card');
+    const name = card.querySelector('.discount-name').innerText;
+    alert("Assigned delivery to: " + name);
+  }
+  </script>
+  <script>
+    // 1️⃣ Read quantity from previous page
+    const params = new URLSearchParams(window.location.search);
+    const maxQty = parseInt(params.get("qty")) || 0;
+
+    let selectedCount = 0;
+
+    const addButtons = document.querySelectorAll(".add-btn");
+    const selectedContainer = document.getElementById("selected-products");
+    const emptyMsg = document.getElementById("empty-msg");
+
+    addButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+
+        if (selectedCount >= maxQty) {
+          alert("You can select only " + maxQty + " products.");
+          return;
+        }
+
+        // Get product name
+        const card = btn.closest(".product-card");
+        const productName = card.querySelector(".product-name").innerText;
+
+        // Remove empty message
+        if (emptyMsg) emptyMsg.remove();
+
+        // Show selected product above
+        const tag = document.createElement("div");
+        tag.innerText = productName;
+        tag.style.padding = "8px 14px";
+        tag.style.background = "#e6f7ff";
+        tag.style.borderRadius = "20px";
+        tag.style.fontWeight = "600";
+
+        selectedContainer.appendChild(tag);
+
+        // Disable this button
+        btn.innerText = "✔ Added";
+        btn.disabled = true;
+
+        selectedCount++;
+
+        // 2️⃣ If limit reached → disable all buttons
+        if (selectedCount === maxQty) {
+          addButtons.forEach(b => {
+            if (!b.disabled) {
+              b.disabled = true;
+              b.innerText = "Limit Reached";
+            }
+          });
+        }
+      });
+    });
+  </script>
+  <script>
+    const confirmBtn = document.getElementById("confirm-btn");
+
+    confirmBtn.addEventListener("click", () => {
+      // Count selected products
+      const selectedContainer = document.getElementById("selected-products");
+      const selectedProducts = selectedContainer.querySelectorAll("div"); // only product divs
+
+      if (selectedProducts.length === 0) {
+        alert("Please select at least one product before confirming!");
+      } else {
+        // Go to MysteryBox page
+        window.location.href = "/MysteryBox";
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

@@ -41,7 +41,7 @@ public class UserEntity {
     String name;
 
     @Column(length=50)
-    String user_name;
+    String userName;
 
     @Column(length=50)
     String password;

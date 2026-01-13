@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gift Shop | Add Category</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+/* -------- BODY & BACKGROUND -------- */
+body {
+    margin:0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom,#b3d9c3 , #87cefa);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* -------- CONTAINER -------- */
+.container {
+    width: 380px;
+    padding: 30px;
+    background-color: #f0fff0;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: 'Baskerville Old Face',serif;
+    color: #355E3B;
+    margin-bottom: 20px;
+}
+
+/* -------- INPUT BOXES -------- */
+.input-box {
+    margin: 12px 0;
+    position: relative;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 85%;
+    padding: 10px 35px 10px 12px;
+    font-size: 20px;
+    color: purple;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: 'Century Schoolbook', serif;
+    transition: 0.3s;
+}
+
+.input-box textarea {
+    resize: none;
+    height: 80px;
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+    border-color: #8858f5;
+    box-shadow: 0 2px 8px rgba(136,88,245,0.4);
+}
+
+.input-box i {
+    position: absolute;
+    right: 12px;
+    top: 18px;
+    font-size: 18px;
+}
+
+/* -------- BUTTON -------- */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ff84b3,#8858f5);
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Maiandra GD', serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+button:hover { transform: scale(1.05); }
+
+/* -------- MESSAGE -------- */
+.message {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: green;
+}
+
+/* -------- FLOATING EMOJIS -------- */
+.emoji {
+    position: absolute;
+    font-size: 42px;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.18;
+}
+
+.emoji1 { top: 15%; left: 5%; }
+.emoji2 { top: 25%; left: 75%; }
+.emoji3 { top: 70%; left: 8%; }
+.emoji4 { top: 60%; left: 55%; }
+.emoji5 { top: 75%; left: 70%; }
+.emoji6 { top: 65%; left: 90%; }
+.emoji7 { top: 45%; left: 21%; }
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-22px); }
+    100% { transform: translateY(0px); }
+}
+.link-button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#ff84b3,#8858f5);
+    color: white;
+    font-size: 18px;
+    font-family: 'Maiandra GD', serif;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+.link-button:hover {
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating emojis -->
+<div class="emoji emoji1">🎁</div>
+<div class="emoji emoji2">🎀</div>
+<div class="emoji emoji3">🎀</div>
+<div class="emoji emoji4">🎀</div>
+<div class="emoji emoji5">🎁</div>
+<div class="emoji emoji6">🛍</div>
+<div class="emoji emoji7">🛍</div>
+
+<div class="container">
+    <h2>ADD Mystery-box</h2>
+
+    <!-- ✅ ADD CATEGORY FORM -->
+    <form th:action="@{/mysterybox/save}" method="post">
+
+        <p th:if="${message}" th:text="${message}" class="message"></p>
+
+        <div class="input-box">
+            <input type="text" name="Price" placeholder="Price" required>
+            <i>🏷</i>
+        </div>
+		<div class="input-box">
+		    <input type="number" id="qtyInput" placeholder="Quantity" required>
+		    <i>📝</i>
+		</div>
+
+		
+
+		<a href="#" class="link-button" onclick="goToSelectMysteryBox()">
+		    Continue
+		</a>
+
+</form>
+</div>
+<script>
+  function goToSelectMysteryBox() {
+    const qty = document.getElementById("qtyInput").value;
+
+    if (!qty || qty <= 0) {
+      alert("Please enter a valid quantity");
+      return;
+    }
+
+    // Direct redirect (no controller logic required)
+    window.location.href = "SelectMysteryBox.html?qty=" + qty;
+  }
+</script>
+
+</body>
+</html>
+[]
