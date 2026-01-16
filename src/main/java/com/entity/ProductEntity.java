@@ -33,7 +33,7 @@ public class ProductEntity {
     @Column(length=20)
     String description;
     
-    @Column(name = "price", precision = 5, scale = 3) 
+    @Column(name = "price", precision = 10, scale = 2) 
     BigDecimal price;
     
     @ManyToOne

@@ -148,7 +148,7 @@ button:hover { transform: scale(1.05); }
     <h2>ADD PRODUCT</h2>
 
     <!-- ✅ ADD CATEGORY FORM -->
-    <form th:action="@{/Orders/save}" method="post">
+    <form th:action="@{addproduct}" method="post">
 
         <p th:if="${message}" th:text="${message}" class="message"></p>
 
@@ -168,12 +168,12 @@ button:hover { transform: scale(1.05); }
 		        </div>
 
 		        <div class="input-box">
-		            <input type="text"  name="Stock" placeholder="Stock" required></textarea>
+		            <input type="text"  name="Stock" placeholder="Stock" required>
 		            <i>📦</i>
 		        </div>
 				
 				<div class="input-box">
-				<input type="text" name="Is_Customized" placeholder="Is_customied" required></textarea>
+				<input type="text" name="Is_Customized" placeholder="Is this product customisable?" required></textarea>
 				<i>🎨</i>
 		        </div>
 		<button type="submit">Save Order</button>

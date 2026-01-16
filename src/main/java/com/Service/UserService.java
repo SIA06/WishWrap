@@ -24,7 +24,7 @@ public class UserService {
             return "Email already exists!";
         }
 
-        String username = user.getUser_name();
+        String username = user.getName();
         String password = user.getPassword();
 
         if ("admin@123".equals(username) && "admin@123".equals(password)) {

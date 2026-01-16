@@ -279,7 +279,7 @@
           <div class="row">
           <div class="col-sm-12 d-flex align-items-center justify-content-between">
 			  <h3 class="mb-0">Admin Product Management</h3>
-			  <a href="AddProduct.html" class="filter-btn1" style="text-decoration:none;">
+			  <a th:href="@{/addproduct}" class="filter-btn1" style="text-decoration:none;">
 			      Add Product
 			  </a>
 			  <button class="filter-btn" data-bs-toggle="modal" data-bs-target="#filterModal">
@@ -385,19 +385,28 @@
 		                  </tr>
 		              </thead>
 		              <tbody>
-		                  <tr>
-		                      
-		                      
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+		                   <tr th:each="p : ${products}"
+    th:attr="data-product-id=${p.product_id}">
+
+    <td th:text="${p.product_id}"></td>
+    <td th:text="${p.product_name}"></td>
+    <td th:text="${p.description}"></td>
+    <td th:text="${p.price}"></td>
+    <td th:text="${p.stock}"></td>
+    <td th:text="${p.isCustomized ? 'Yes' : 'No'}"></td>
+
 								<td>
 								<div class="action-buttons">
-									<a href="javascript:void(0)" class="btn btn-edit" onclick="editRow(this)">Edit</a>
-									   <a href="javascript:void(0)" class="btn btn-delete" onclick="deleteRow(this)">Delete</a>
+									<button type="button" class="btn btn-edit" onclick="editRow(this)">Edit</button>
+									   <form th:action="@{/deleteproduct}" method="post" 
+      onsubmit="return confirm('Are you sure you want to delete this product?');" 
+      style="display:inline;">
+  <input type="hidden" name="product_id" th:value="${p.product_id}" />
+  <button type="submit" class="btn btn-delete">
+    Delete
+  </button>
+</form>
+
 								 <div style="display:flex; gap:6px; justify-content:center;">
 
 								 			        <!-- Export -->
@@ -408,9 +417,8 @@
 								 			            <div onclick="exportOrder('csv')">CSV</div>
 								 			            <div onclick="exportOrder('excel')">Excel</div>
 								 			            <div onclick="exportOrder('word')">Word</div>
-								 			            <div onclick="exportOrder('json')">Doc</div>
 								 			            <div onclick="exportOrder('xml')">XML</div>
-								 			            <div onclick="exportOrder('print')">Print</div>
+								 			            
 								 			          </div>
 								 			        </div>
 
@@ -419,7 +427,8 @@
 								 			          Details
 								 			        </button>
 
-								 			      </div></div>
+								</div>
+								</div>
 		                     </td>
 		                 </tr>
 		             </tbody>
@@ -1180,39 +1189,69 @@
   </script>
   <script>
   function editRow(btn) {
-    const row = btn.closest("tr");
-    const cells = row.querySelectorAll("td");
 
-    // SAVE MODE
-    if (btn.innerText === "Save") {
-      for (let i = 0; i < cells.length - 1; i++) {
-        const input = cells[i].querySelector("input");
-        if (input) {
-          cells[i].innerText = input.value;
-        }
-      }
-      btn.innerText = "Edit";
-      btn.classList.remove("btn-success");
-      btn.classList.add("btn-edit");
-      return;
-    }
+	  const row = btn.closest("tr");
+	  const cells = row.querySelectorAll("td");
 
-    // EDIT MODE
-    for (let i = 0; i < cells.length - 1; i++) {
-      const text = cells[i].innerText.trim();
-      cells[i].innerHTML = `<input type="text" value="${text}" style="width:100%; padding:4px;">`;
-    }
+	  // SAVE MODE
+	  if (btn.innerText.trim() === "Save") {
 
-    btn.innerText = "Save";
-    btn.classList.remove("btn-edit");
-    btn.classList.add("btn-success");
-  }
+	    const productId = row.getAttribute("data-product-id");
+
+	    const updatedData = {
+	      productId: productId,
+	      productName: cells[1].querySelector("input").value,
+	      description: cells[2].querySelector("input").value,
+	      Price: cells[3].querySelector("input").value,
+	      Stock: cells[4].querySelector("input").value,
+	      Is_Customized: cells[5].querySelector("input").value
+	    };
+
+	    fetch("/editproduct", {
+	      method: "POST",
+	      headers: {
+	        "Content-Type": "application/x-www-form-urlencoded"
+	      },
+	      body: new URLSearchParams(updatedData).toString()
+	    });
+
+	    // Update UI
+	    for (let i = 1; i < cells.length - 1; i++) {
+	      const input = cells[i].querySelector("input");
+	      if (input) {
+	        cells[i].innerText = input.value;
+	      }
+	    }
+
+	    btn.innerText = "Edit";
+	    btn.classList.remove("btn-success");
+	    btn.classList.add("btn-edit");
+	    return;
+	  }
+
+	  // EDIT MODE (skip product_id)
+	  for (let i = 1; i < cells.length - 1; i++) {
+	    const text = cells[i].innerText.trim();
+	    cells[i].innerHTML =
+	      `<input type="text" value="${text}" style="width:100%; padding:4px;">`;
+	  }
+
+	  btn.innerText = "Save";
+	  btn.classList.remove("btn-edit");
+	  btn.classList.add("btn-success");
+	}
+
 
   function deleteRow(btn) {
     if (!confirm("Are you sure you want to delete this row?")) return;
 
     const row = btn.closest("tr");
     row.remove();
+  }
+  
+  function exportOrder(type) 
+  {
+	    window.location.href = "/exportfile?type=" + type;
   }
   </script>
 
