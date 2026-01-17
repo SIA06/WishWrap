@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -124,5 +125,42 @@ public class ProductController
             productExportService.exportToXML(products, response);
         }
 	}
+	
+	@GetMapping("/product-filter")
+	public String filterProducts(
+	        @RequestParam(required = false) Boolean isCustomized,
+	        @RequestParam(required = false) String sortField,
+	        @RequestParam(required = false) String sortOrder,
+	        Model model) {
 
+	    List<ProductEntity> products;
+
+	    boolean validSort = sortField != null && !sortField.trim().isEmpty()
+	            && sortOrder != null && !sortOrder.trim().isEmpty();
+
+	    if (validSort) {
+	        Sort sort = sortOrder.equalsIgnoreCase("asc")
+	                ? Sort.by(sortField).ascending()
+	                : Sort.by(sortField).descending();
+
+	        if (isCustomized != null) {
+	            products = productrepo.findByIsCustomized(isCustomized, sort);
+	        } else {
+	            products = productrepo.findAll(sort);
+	        }
+
+	    } else {
+	        if (isCustomized != null) {
+	            products = productrepo.findByIsCustomized(isCustomized);
+	        } else {
+	            products = productrepo.findAll();
+	        }
+	    }
+
+	    model.addAttribute("products", products);
+	    return "Product";
+	}
+
+
+	
 }

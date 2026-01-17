@@ -294,7 +294,7 @@
 	  <div class="modal fade" id="filterModal" tabindex="-1">
 	      <div class="modal-dialog modal-lg modal-dialog-centered">
 	        <div class="modal-content">
-
+			<form method="get" action="/product-filter">
 	          <div class="modal-header">
 	            <h5 class="modal-title">Filter & Sort </h5>
 	            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -303,21 +303,15 @@
 	          <div class="modal-body">
 	            <div class="row g-3">
 
-	              <div class="col-md-6">
-	                <label class="form-label">Order Date</label>
-	                <div class="d-flex gap-2">
-	                  <input type="date" class="form-control">
-	                  <input type="date" class="form-control">
-	                </div>
-	              </div>
-
 	             
+
+	        
 
 	              <div class="col-md-6">
 	                <label class="form-label">Is-Customized</label>
-	                <select class="form-select"><option value="" selected disabled hidden>Select </option>
-	                  <option>Yes</option>
-	                  <option>No</option>
+	                <select class="form-select" name="isCustomized"><option value="" selected disabled hidden>Select </option>
+	                  <option value="true">Yes</option>
+	                  <option value="false">No</option>
 	                 
 	              
 	                </select>
@@ -326,14 +320,13 @@
 	              <div class="col-md-6">
 	                <label class="form-label">Sort</label><option value="" selected disabled hidden></option>
 	                <div class="d-flex gap-2">
-	                  <select class="form-select">
-	                    <option>Quantity</option>
-	                    <option>Price</option>
-	                    <option>Date</option>
+	                  <select class="form-select" name="sortField">
+	                    <option value="stock">Quantity</option>
+	                    <option value="price">Price</option>
 	                  </select>
-	                  <select class="form-select"><option value="" selected disabled hidden>Select ordering</option>
-	                    <option>Ascending</option>
-	                    <option>Descending</option>
+	                  <select class="form-select" name="sortOrder"><option value="" selected disabled hidden>Select ordering</option>
+	                    <option value="asc">Ascending</option>
+	                    <option value="desc">Descending</option>
 	                  </select>
 	                </div>
 	              </div>
@@ -342,10 +335,10 @@
 	          </div>
 
 	          <div class="modal-footer">
-	            <button class="btn btn-primary">Apply Filters</button>
-	            <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Clear</button>
+	            <button type="submit" class="btn btn-primary">Apply Filters</button>
+	            <a href="/product-view" class="btn btn-outline-secondary">Clear</a>
 	          </div>
-			
+			</form>
 	        </div>
 	      </div>
 	    </div>
@@ -360,8 +353,8 @@
 			<div class="toolbar" style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
 			  <!-- Search bar on the left -->
 			  <div class="toolbar-left">
-			    					                   <input type="text" placeholder="Search Product...">
-			    					                   <button class="btn-add">Search</button>
+			    					                   <input type="text" id="searchInput" placeholder="Search Product...">
+													   <button class="btn-add" onclick="searchProduct()">Search</button>
 			    					               </div>
 			
 
@@ -372,7 +365,7 @@
 
 		  </div>
 
-		  <table>
+		  <table id="productTable">
 		              <thead>
 		                  <tr>
 							<th style="width:10%;">product_id</th>
@@ -1004,6 +997,12 @@
 	    font-weight:600;
 	    background:#f8fafc;
 	}
+	/*search*/
+	.highlight {
+    background-color: #f4c430;
+    font-weight: bold;
+}
+	
 
 	/* Add button */
 	.btn-add {
@@ -1253,6 +1252,23 @@
   {
 	    window.location.href = "/exportfile?type=" + type;
   }
+  
+  function searchProduct() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#productTable tbody tr");
+
+      rows.forEach(row => {
+          row.classList.remove("highlight");
+
+          const productName = row.cells[1].innerText.toLowerCase();
+
+          if (input !== "" && productName.includes(input)) {
+              row.classList.add("highlight");
+              row.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+      });
+  }
+
   </script>
 
 </body>
